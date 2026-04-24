@@ -1,4 +1,4 @@
-import { createClient } from "./supabase/server";
+import { createPublicClient } from "./supabase/public";
 import type { Event, EventMedia } from "./database.types";
 
 /**
@@ -14,7 +14,7 @@ export interface EventWithMedia extends Event {
  */
 export async function getLastMeetup(): Promise<EventWithMedia | null> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
 
     const { data, error } = await supabase
       .from("events")
@@ -59,7 +59,7 @@ export async function getPastEvents(
   offset: number = 0,
 ): Promise<Event[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
 
     const { data, error } = await supabase
       .from("events")
@@ -87,7 +87,7 @@ export async function getPastEvents(
  */
 export async function getUpcomingEvents(limit: number = 6): Promise<Event[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
 
     const { data, error } = await supabase
       .from("events")
@@ -117,7 +117,7 @@ export async function getEventWithMedia(
   eventId: string,
 ): Promise<EventWithMedia | null> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
 
     const { data, error } = await supabase
       .from("events")

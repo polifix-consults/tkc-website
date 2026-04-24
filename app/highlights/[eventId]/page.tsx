@@ -70,7 +70,7 @@ export default async function EventDetailPage({
   const mediaCount = event.event_media?.length ?? 0;
 
   return (
-    <div className="pt-20 mt-[15rem]">
+    <div className="pt-20 mt-[20rem]">
       {/* Back Link */}
       <div className="tkc-container mb-8">
         <Link
