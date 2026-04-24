@@ -279,7 +279,7 @@ export default function AboutPage() {
           <span className="italic font-semibold">starts here.</span>
         </h2>
         <Link
-          href="/join"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeyJwStOb7J2G5y5HehqAL61EySRv_Dmp1dUR5d9UisOrdaJg/viewform"
           className="inline-block bg-[#111111] text-[#E0B547] font-body text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:scale-105 transition-transform"
         >
           JOIN THE KNIGHTS COLLECTIVE
