@@ -61,7 +61,7 @@ export function HeroSection() {
           style={{ animationDelay: "0.4s", opacity: 0 }}
         >
           <Image
-            src="/images/hero_new.png"
+            src="/images/heronewImg.jpeg"
             alt="The Knights Collective Chess"
             fill
             className="object-cover object-center"

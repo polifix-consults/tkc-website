@@ -65,7 +65,7 @@ export function AtelierSection() {
         {/* Right Image */}
         <div className="relative min-h-[400px] lg:min-h-[600px] w-full border-l border-[#31412d]/30">
           <Image
-            src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?q=80&w=1500"
+            src="/images/MonthlyInsight.jpeg"
             alt="Professionals engaging over a chess board"
             fill
             className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 rounded-t-3xl lg:rounded-t-none lg:rounded-tl-3xl"

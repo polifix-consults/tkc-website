@@ -41,7 +41,7 @@ export default function AboutPage() {
           >
             <div className="relative h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl border border-[#31412d]/50">
               <Image
-                src="/images/about%20knights%20image.png"
+                src="/images/aboutImg.jpeg"
                 alt="Knight Chess Piece"
                 fill
                 className="object-cover"
@@ -116,7 +116,7 @@ export default function AboutPage() {
               </div>
               <div className="relative w-48 h-36 shrink-0 rounded-lg overflow-hidden mt-6 border border-[#31412d]/50">
                 <Image
-                  src="https://gdlknxdmtwzufzbllxkm.supabase.co/storage/v1/object/public/event-galleries/board.jpeg"
+                  src="/images/Professionals.jpeg"
                   alt="Culture"
                   fill
                   className="object-cover"
