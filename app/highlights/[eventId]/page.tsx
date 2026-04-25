@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -6,7 +5,6 @@ import Link from "next/link";
 import { MapPin, Clock, Calendar, ArrowLeft } from "lucide-react";
 import { getEventWithMedia, formatEventDate } from "@/lib/queries";
 import { PhotoGallery } from "./PhotoGallery";
-import { GoldDivider } from "@/components/ui/Typography";
 
 // Dynamic metadata generation
 export async function generateMetadata({
@@ -29,9 +27,9 @@ export async function generateMetadata({
 
   return {
     title: event.title,
-    description: `${event.title} at ${event.location} on ${date}. View the event gallery and highlights from The Knight Club.`,
+    description: `${event.title} at ${event.location} on ${date}. View the event gallery and highlights from The Knights Collective.`,
     openGraph: {
-      title: `${event.title} | The Knight Club`,
+      title: `${event.title} | The Knights Collective`,
       description: `${event.title} at ${event.location} on ${date}.`,
       images: event.cover_image_url
         ? [
@@ -70,25 +68,16 @@ export default async function EventDetailPage({
   const mediaCount = event.event_media?.length ?? 0;
 
   return (
-    <div className="pt-20 mt-[20rem]">
-      {/* Back Link */}
-      <div className="tkc-container mb-8">
-        <Link
-          href="/archives"
-          className="flex items-center gap-2 text-tkc-gold hover:text-tkc-gold/80"
-        >
-          
-        </Link>
-      </div>
-
+    // Applied the dark secondary background (#2c2627) and enforced font-sans (Public Sans)
+    <div className="pt-20 mt-[25rem] bg-[#2c2627] min-h-screen font-sans">
       {/* Event title overlay */}
       <section className="relative">
-        <div className="absolute bottom-0 left-0 right-0 z-10">
-          <div className="tkc-container pb-10">
-            <p className="font-body text-caption uppercase tracking-[0.2em] text-tkc-gold mb-3">
+        <div className="absolute bottom-[14px] left-0 right-0 z-10">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c49671] mb-3">
               Event Highlight
             </p>
-            <h1 className="font-display font-normal text-display-lg text-tkc-white max-w-[800px]">
+            <h1 className="font-semibold text-5xl md:text-6xl text-[#f2efe9] max-w-[800px] tracking-tight">
               {event.title}
             </h1>
           </div>
@@ -96,19 +85,19 @@ export default async function EventDetailPage({
       </section>
 
       {/* Event Meta */}
-      <section className="bg-tkc-dark border-b border-tkc-border">
-        <div className="tkc-container py-8">
+      <section className="bg-[#31412d]/10 border-b border-[#31412d]/50">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-wrap items-center gap-8">
             {/* Date */}
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 border border-tkc-gold/30 flex items-center justify-center flex-shrink-0">
-                <Calendar size={14} className="text-tkc-gold" />
+              <div className="w-9 h-9 border border-[#c49671]/30 flex items-center justify-center flex-shrink-0 rounded-full">
+                <Calendar size={14} className="text-[#c49671]" />
               </div>
               <div>
-                <p className="font-body text-[9px] uppercase tracking-[0.15em] text-tkc-muted mb-0.5">
+                <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#f2efe9]/50 mb-0.5">
                   Date
                 </p>
-                <p className="font-body text-body-sm text-tkc-white">
+                <p className="text-sm font-medium text-[#f2efe9]">
                   {startDate.weekday}, {startDate.full}
                 </p>
               </div>
@@ -116,14 +105,14 @@ export default async function EventDetailPage({
 
             {/* Time */}
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 border border-tkc-gold/30 flex items-center justify-center flex-shrink-0">
-                <Clock size={14} className="text-tkc-gold" />
+              <div className="w-9 h-9 border border-[#c49671]/30 flex items-center justify-center flex-shrink-0 rounded-full">
+                <Clock size={14} className="text-[#c49671]" />
               </div>
               <div>
-                <p className="font-body text-[9px] uppercase tracking-[0.15em] text-tkc-muted mb-0.5">
+                <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#f2efe9]/50 mb-0.5">
                   Time
                 </p>
-                <p className="font-body text-body-sm text-tkc-white">
+                <p className="text-sm font-medium text-[#f2efe9]">
                   {startDate.time} — {endDate.time}
                 </p>
               </div>
@@ -131,14 +120,14 @@ export default async function EventDetailPage({
 
             {/* Location */}
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 border border-tkc-gold/30 flex items-center justify-center flex-shrink-0">
-                <MapPin size={14} className="text-tkc-gold" />
+              <div className="w-9 h-9 border border-[#c49671]/30 flex items-center justify-center flex-shrink-0 rounded-full">
+                <MapPin size={14} className="text-[#c49671]" />
               </div>
               <div>
-                <p className="font-body text-[9px] uppercase tracking-[0.15em] text-tkc-muted mb-0.5">
+                <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#f2efe9]/50 mb-0.5">
                   Location
                 </p>
-                <p className="font-body text-body-sm text-tkc-white">
+                <p className="text-sm font-medium text-[#f2efe9]">
                   {event.location}
                 </p>
               </div>
@@ -147,12 +136,12 @@ export default async function EventDetailPage({
             {/* Media count */}
             {mediaCount > 0 && (
               <div className="ml-auto flex items-center gap-2">
-                <span className="font-display text-2xl text-tkc-gold/40">♞</span>
+                <span className="text-2xl text-[#c49671]/60">♞</span>
                 <div>
-                  <p className="font-body text-[9px] uppercase tracking-[0.15em] text-tkc-muted mb-0.5">
+                  <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#f2efe9]/50 mb-0.5">
                     Gallery
                   </p>
-                  <p className="font-body text-body-sm text-tkc-white">
+                  <p className="text-sm font-medium text-[#f2efe9]">
                     {mediaCount} photo{mediaCount !== 1 ? "s" : ""}
                   </p>
                 </div>
@@ -163,48 +152,49 @@ export default async function EventDetailPage({
       </section>
 
       {/* Photo Gallery */}
-      <section className="tkc-section bg-tkc-black">
-        <div className="tkc-container">
+      <section className="py-24">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           {mediaCount > 0 ? (
             <>
               <div className="flex items-center justify-between mb-12">
                 <div>
-                  <p className="font-body text-caption uppercase tracking-[0.2em] text-tkc-gold mb-2">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#c49671] mb-2">
                     Event Gallery
                   </p>
-                  <h2 className="font-display font-normal text-display-md text-tkc-white">
+                  <h2 className="font-semibold text-3xl md:text-4xl text-[#f2efe9]">
                     Moments from the{" "}
-                    <em className="gold-text not-italic">Evening</em>
+                    <em className="text-[#c49671] font-normal italic">
+                      Evening
+                    </em>
                   </h2>
                 </div>
-                <span className="font-mono text-body-sm text-tkc-muted hidden sm:block">
+                <span className="text-sm font-medium text-[#f2efe9]/50 hidden sm:block">
                   {String(mediaCount).padStart(2, "0")} frames
                 </span>
               </div>
 
-              <GoldDivider className="mb-12" />
+              {/* Standardized Divider instead of <GoldDivider /> */}
+              <hr className="border-[#31412d]/50 mb-12" />
 
               <PhotoGallery media={event.event_media} />
             </>
           ) : (
-            <div className="text-center py-24">
-              <span className="font-display text-6xl text-tkc-gold/20 block mb-6">
-                ♟
-              </span>
-              <p className="font-display text-display-sm text-tkc-muted mb-2">
+            <div className="text-center py-24 bg-[#31412d]/5 rounded-2xl border border-[#31412d]/30">
+              <span className="text-6xl text-[#c49671]/30 block mb-6">♟</span>
+              <p className="text-2xl font-semibold text-[#f2efe9]/70 mb-2">
                 Gallery coming soon
               </p>
-              <p className="font-body text-body-sm text-tkc-muted/60">
+              <p className="text-sm text-[#f2efe9]/40">
                 Photos from this event will be added shortly.
               </p>
             </div>
           )}
 
           {/* Back link */}
-          <div className="mt-16 pt-10 border-t border-tkc-border">
+          <div className="mt-16 pt-10 border-t border-[#31412d]/50">
             <Link
               href="/highlights"
-              className="inline-flex items-center gap-3 font-body text-caption uppercase tracking-[0.15em] text-tkc-muted hover:text-tkc-gold transition-colors duration-200 group"
+              className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.15em] text-[#f2efe9]/60 hover:text-[#c49671] transition-colors duration-200 group"
             >
               <ArrowLeft
                 size={14}
@@ -218,4 +208,3 @@ export default async function EventDetailPage({
     </div>
   );
 }
-

@@ -3,16 +3,18 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="bg-[#111111] border-t border-tkc-border/40 py-24">
-      <div className="tkc-container flex flex-col items-center justify-center text-center">
+    // Replaced #111111 with the brand's dark secondary color #2c2627
+    // Enforced font-sans for Public Sans
+    <footer className="bg-[#2c2627] border-t border-[#31412d]/50 py-24 font-sans">
+      <div className="tkc-container max-w-[1400px] mx-auto px-4 flex flex-col items-center justify-center text-center">
         {/* Brand */}
         <div className="mb-8">
-          <Image 
-            src="/images/tkclogo.png" 
-            alt="The Knights Collective" 
-            width={400} 
-            height={60} 
-            className="h-[60px] w-auto object-contain" 
+          <Image
+            src="/images/tkclogo.png"
+            alt="The Knights Collective"
+            width={400}
+            height={60}
+            className="h-[60px] w-auto object-contain"
           />
         </div>
 
@@ -21,12 +23,11 @@ export function Footer() {
           {[
             { href: "/highlights", label: "Archives" },
             { href: "/about", label: "Strategy" },
-           
           ].map((link) => (
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="font-body text-body-sm text-tkc-muted hover:text-tkc-white transition-colors duration-200"
+                className="text-sm font-medium text-[#f2efe9]/70 hover:text-[#c49671] transition-colors duration-200"
               >
                 {link.label}
               </Link>
@@ -35,7 +36,7 @@ export function Footer() {
         </ul>
 
         {/* Copyright */}
-        <p className="font-body text-xs text-tkc-muted/50 tracking-wide">
+        <p className="text-xs text-[#f2efe9]/40 tracking-wide">
           © 2026 The Knights Collective. All rights reserved.
         </p>
       </div>

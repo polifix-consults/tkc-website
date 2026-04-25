@@ -4,9 +4,9 @@ import { HorizontalEventCard } from "@/components/ui/HorizontalEventCard";
 import { getLastMeetup } from "@/lib/queries";
 
 export const metadata: Metadata = {
-  title: "Event Highlights",
+  title: "Event Archives | The Knights Collective",
   description:
-    "Check out pictures and videos from our last meetups and events.",
+    "Check out pictures and videos from past meetups and events of The Knights Collective.",
 };
 
 export const revalidate = 60; // revalidate every minute if not relying on client fetches completely
@@ -15,30 +15,36 @@ export default async function HighlightsPage() {
   const lastMeetup = await getLastMeetup();
 
   return (
-    <div className="bg-tkc-black min-h-screen pt-20">
+    // Applied the dark secondary background (#2c2627) and enforced font-sans (Public Sans)
+    <div className="bg-[#2c2627] min-h-screen pt-20 font-sans">
       {/* Hero Section */}
-      <section className="relative h-[500px] w-full max-w-[1400px] mx-auto rounded-[2rem] overflow-hidden mt-8">
+      <section className="relative h-[500px] w-full max-w-[1400px] mx-auto rounded-[2rem] overflow-hidden mt-8 border border-[#31412d]/30">
         <Image
-          src="/images/eventhh.jpeg" // Close up of gold chess piece
+          src="/images/eventhh.jpeg"
           alt="Event Highlights"
           fill
           className="object-cover object-right-bottom ml-32 md:ml-64 scale-125"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-tkc-black/90 via-tkc-black/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-tkc-black via-transparent to-tkc-black/30" />
+        {/* Adjusted gradients to strictly use the secondary brand color */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2c2627]/90 via-[#2c2627]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2c2627] via-transparent to-[#2c2627]/30" />
 
         <div className="absolute inset-0 flex items-center">
-          <div className="tkc-container w-full">
+          <div className="max-w-[1400px] mx-auto px-4 md:px-8 w-full">
             <div className="max-w-[600px] animate-fade-up">
-              <span className="inline-block bg-[#E0B547] text-tkc-black font-body text-[10px] font-bold uppercase tracking-[0.1em] px-3 py-1 rounded-full mb-6">
-                MEETUPS
+              <span className="inline-block bg-[#c49671] text-[#2c2627] text-[10px] font-bold uppercase tracking-[0.1em] px-3 py-1 rounded-full mb-6">
+                Archives
               </span>
-              <h1 className="font-display font-normal tracking-tight text-5xl md:text-7xl text-tkc-white mb-6 leading-tight">
-                Event <span className="font-semibold italic">Highlights</span>
+              <h1 className="font-semibold tracking-tight text-5xl md:text-7xl text-[#f2efe9] mb-6 leading-tight">
+                Event{" "}
+                <span className="font-normal italic text-[#c49671]">
+                  Highlights
+                </span>
               </h1>
-              <p className="font-body text-base text-tkc-muted/90 max-w-[400px]">
-                Check out pictures and videos from our last meetups and events.
+              <p className="text-base text-[#f2efe9]/80 max-w-[400px] leading-relaxed">
+                Check out pictures and videos from past meetups and events of
+                our strategic chess circle.
               </p>
             </div>
           </div>
@@ -46,9 +52,9 @@ export default async function HighlightsPage() {
       </section>
 
       {/* Latest Events */}
-      <section className="tkc-container max-w-[1000px] py-20">
+      <section className="max-w-[1000px] mx-auto px-4 md:px-8 py-20">
         <div className="flex items-center justify-between mb-12">
-          <h2 className="font-display font-normal tracking-wide text-3xl text-tkc-white">
+          <h2 className="font-semibold tracking-wide text-3xl text-[#f2efe9]">
             Latest Meetup
           </h2>
         </div>
@@ -65,10 +71,8 @@ export default async function HighlightsPage() {
             </div>
           </>
         ) : (
-          <div className="text-center py-20 border border-tkc-border rounded-2xl">
-            <p className="font-body text-tkc-muted">
-              No past events recorded yet.
-            </p>
+          <div className="text-center py-20 border border-[#31412d]/50 rounded-2xl bg-[#31412d]/5">
+            <p className="text-[#f2efe9]/70">No past events recorded yet.</p>
           </div>
         )}
       </section>

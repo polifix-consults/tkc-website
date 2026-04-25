@@ -5,51 +5,57 @@ export function AtelierSection() {
   const videos = [
     {
       num: "01",
-      title: "The Sicilian Defense Reimagined",
-      desc: "GM Alexander Thomas explores modern counters to aggressive openings.",
+      title: "The Opening Insight",
+      desc: "Guest speakers and senior professionals share strategic leadership tips to kick off the session.",
     },
     {
       num: "02",
-      title: "Endgame Minimalism",
-      desc: "Mastering the art of winning with just a single pawn advantage.",
+      title: "Strategic Thinking in Practice",
+      desc: "Using the mechanics of chess as a tool to sharpen analytical skills and decision-making.",
     },
     {
       num: "03",
-      title: "Psychology of the Clock",
-      desc: "How to maintain composure when the pressure of time mounts.",
+      title: "Networking & Reflection",
+      desc: "Extracting lessons from the game while fostering connections among thought leaders and innovators.",
     },
   ];
 
   return (
-    <section className="bg-tkc-black pt-24 pb-0">
-      <div className="tkc-container max-w-[1400px] w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-0 items-stretch h-full">
-        
+    // Applying the dark secondary background (#2c2627) and enforcing font-sans (Public Sans)
+    <section className="bg-[#2c2627] pt-24 pb-0 font-sans border-t border-[#31412d]/50">
+      <div className="tkc-container max-w-[1400px] w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-0 items-stretch h-full mx-auto">
         {/* Left Content */}
-        <div className="bg-[#0A0A0A] p-8 md:p-16 lg:pr-24 flex flex-col justify-center border-t border-tkc-border/40 min-h-[500px]">
-          <p className="font-body text-[10px] uppercase tracking-[0.2em] text-[#E0B547] mb-12">
-            DIGITAL ATELIER
+        <div className="bg-[#31412d]/10 p-8 md:p-16 lg:pr-24 flex flex-col justify-center min-h-[500px]">
+          <p className="font-bold text-[10px] uppercase tracking-[0.2em] text-[#c49671] mb-12">
+            Monthly Insights
           </p>
 
           <div className="flex flex-col gap-10">
             {videos.map((vid) => (
-              <div 
-                key={vid.num} 
+              <div
+                key={vid.num}
                 className="group flex items-start justify-between cursor-pointer animate-fade-up relative"
               >
                 <div className="flex items-start gap-8 pr-8">
-                  <span className="font-body text-sm text-tkc-muted mt-1 w-6">{vid.num}</span>
+                  <span className="text-sm text-[#f2efe9]/50 mt-1 w-6">
+                    {vid.num}
+                  </span>
                   <div>
-                    <h4 className="font-display text-xl text-tkc-white mb-2 group-hover:text-[#E0B547] transition-colors duration-300">
+                    <h4 className="font-semibold text-xl text-[#f2efe9] mb-2 group-hover:text-[#c49671] transition-colors duration-300">
                       {vid.title}
                     </h4>
-                    <p className="font-body text-sm text-tkc-muted max-w-[320px] leading-relaxed">
+                    <p className="text-sm text-[#f2efe9]/70 max-w-[320px] leading-relaxed">
                       {vid.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="w-8 h-8 rounded-full border border-[#E0B547]/50 flex items-center justify-center shrink-0 mt-1 transition-all duration-300 group-hover:bg-[#E0B547]/10 group-hover:border-[#E0B547]">
-                  <Play size={10} className="text-[#E0B547] ml-0.5" fill="currentColor" />
+                <div className="w-8 h-8 rounded-full border border-[#c49671]/50 flex items-center justify-center shrink-0 mt-1 transition-all duration-300 group-hover:bg-[#c49671]/10 group-hover:border-[#c49671]">
+                  <Play
+                    size={10}
+                    className="text-[#c49671] ml-0.5"
+                    fill="currentColor"
+                  />
                 </div>
               </div>
             ))}
@@ -57,17 +63,16 @@ export function AtelierSection() {
         </div>
 
         {/* Right Image */}
-        <div className="relative min-h-[400px] lg:min-h-[600px] w-full">
+        <div className="relative min-h-[400px] lg:min-h-[600px] w-full border-l border-[#31412d]/30">
           <Image
-            src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?q=80&w=1500" // Placeholder chess board macro
-            alt="Chess board closeup"
+            src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?q=80&w=1500"
+            alt="Professionals engaging over a chess board"
             fill
             className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 rounded-t-3xl lg:rounded-t-none lg:rounded-tl-3xl"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-tkc-black/80 lg:from-transparent to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-tkc-black/40 lg:from-tkc-black/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2c2627]/80 lg:from-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2c2627]/90 lg:from-[#2c2627]/80 via-transparent to-transparent" />
         </div>
-
       </div>
     </section>
   );

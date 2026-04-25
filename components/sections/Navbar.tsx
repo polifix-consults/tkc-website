@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/", label: "Home" }, // Or should it be #events? The images say Events, About, Events Highlights
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/highlights", label: "Events Highlights" },
 ];
@@ -27,21 +27,21 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-tkc",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 font-sans",
         scrolled
-          ? "bg-tkc-black/90 backdrop-blur-md border-b border-tkc-border/40 shadow-card"
-          : "bg-transparent py-4"
+          ? "bg-[#2c2627]/95 backdrop-blur-md border-b border-[#31412d]/50 shadow-sm"
+          : "bg-transparent py-4",
       )}
     >
-      <nav className="tkc-container flex items-center justify-between h-20 md:h-24">
+      <nav className="max-w-[1400px] mx-auto px-4 md:px-8 flex items-center justify-between h-20 md:h-24">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <Image 
-            src="/images/tkclogo.png" 
-            alt="The Knights Collective" 
-            width={400} 
-            height={60} 
-            className="h-[60px] w-auto object-contain" 
+          <Image
+            src="/images/tkclogo.png"
+            alt="The Knights Collective"
+            width={400}
+            height={60}
+            className="h-[60px] w-auto object-contain"
             priority
           />
         </Link>
@@ -49,14 +49,16 @@ export function Navbar() {
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href || (link.href === '/' && pathname === '/#events');
+            const isActive =
+              pathname === link.href ||
+              (link.href === "/" && pathname === "/#events");
             return (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   className={cn(
-                    "font-body text-body-sm text-tkc-muted hover:text-tkc-white transition-colors duration-200",
-                    isActive && "text-tkc-white border-b border-tkc-gold pb-1"
+                    "text-sm font-medium text-[#f2efe9]/70 hover:text-[#f2efe9] transition-colors duration-200",
+                    isActive && "text-[#f2efe9] border-b border-[#c49671] pb-1",
                   )}
                 >
                   {link.label}
@@ -68,15 +70,15 @@ export function Navbar() {
 
         {/* CTA */}
         <Link
-          href="/about#your-first-move"
-          className="hidden md:inline-flex items-center justify-center bg-[#E0B547] text-tkc-black font-body font-medium text-sm px-6 py-2.5 rounded hover:brightness-110 transition-all duration-300"
+          href="/join"
+          className="hidden md:inline-flex items-center justify-center bg-[#c49671] text-[#2c2627] font-semibold text-sm px-6 py-2.5 rounded hover:bg-[#f2efe9] transition-all duration-300"
         >
-          Join the Club
+          Join the Circle
         </Link>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-tkc-muted hover:text-tkc-white transition-colors"
+          className="md:hidden p-2 text-[#f2efe9]/70 hover:text-[#f2efe9] transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -87,29 +89,29 @@ export function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-400 ease-tkc bg-tkc-black/95 backdrop-blur-md border-b border-tkc-border",
-          menuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+          "md:hidden overflow-hidden transition-all duration-400 bg-[#2c2627]/95 backdrop-blur-md border-b border-[#31412d]/50",
+          menuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0",
         )}
       >
-        <ul className="tkc-container py-6 flex flex-col gap-6">
+        <ul className="px-4 py-6 flex flex-col gap-6">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="font-body text-body-md text-tkc-muted hover:text-tkc-white transition-colors"
+                className="text-base font-medium text-[#f2efe9]/70 hover:text-[#f2efe9] transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
               </Link>
             </li>
           ))}
-          <li className="pt-4 border-t border-tkc-border">
+          <li className="pt-4 border-t border-[#31412d]/50">
             <Link
-              href="/about#your-first-move"
-              className="inline-flex items-center justify-center bg-[#E0B547] text-tkc-black font-body font-medium text-sm px-6 py-2.5 rounded w-full"
+              href="/join"
+              className="inline-flex items-center justify-center bg-[#c49671] text-[#2c2627] font-semibold text-sm px-6 py-2.5 rounded w-full"
               onClick={() => setMenuOpen(false)}
             >
-              Join the Club
+              Join the Circle
             </Link>
           </li>
         </ul>
