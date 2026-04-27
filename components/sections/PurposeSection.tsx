@@ -64,6 +64,6 @@ export function PurposeSection() {
           ))}
         </div>
       </div>
-    </section>
+    </section> 
   );
 }
