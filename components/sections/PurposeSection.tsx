@@ -1,69 +1,93 @@
 import { Brain, Network, Coffee, Users } from "lucide-react";
+import Image from "next/image";
 
 const pillars = [
   {
-    // Using the supporting color #c49671 for icons
-    icon: <Brain size={20} className="text-[#c49671]" />,
+    icon: <Brain size={22} className="text-[#c49671]" />,
     title: "Strategic Thinking",
     description:
       "Use chess as a tool to sharpen analytical skills and decision-making.",
+    image: "/images/strategic.jpeg",
   },
   {
-    icon: <Network size={20} className="text-[#c49671]" />,
+    icon: <Network size={22} className="text-[#c49671]" />,
     title: "Professional Networking",
     description:
       "Foster connections among thought leaders, innovators, and policy professionals.",
+    image: "/images/bIhero.jpeg",
   },
   {
-    icon: <Coffee size={20} className="text-[#c49671]" />,
+    icon: <Coffee size={22} className="text-[#c49671]" />,
     title: "Relaxed Excellence",
     description:
       "Provide a semi-casual environment that blends professionalism with the joy of play.",
+    image: "/images/relaxedex.jpeg",
   },
   {
-    icon: <Users size={20} className="text-[#c49671]" />,
+    icon: <Users size={22} className="text-[#c49671]" />,
     title: "Our Culture",
     description:
       "A learning-oriented, community-driven space where senior professionals share insights and wisdom.",
+    image: "/images/professionalInsight.jpeg",
   },
 ];
 
 export function PurposeSection() {
   return (
-    // Applied the dark secondary background (#2c2627) and enforced font-sans (Public Sans)
-    <section className="bg-[#2c2627] py-24 border-b border-[#31412d]/50 font-sans">
-      <div className="tkc-container max-w-[1200px] mx-auto px-4 md:px-8">
+    <section className="bg-[#262626] py-24 border-b border-[#31412d]/50 font-sans">
+      <div className="tkc-container max-w-[1400px] mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-20 animate-fade-up">
-          <h2 className="font-bold text-3xl md:text-4xl text-[#f2efe9] mb-2 tracking-wide">
+          <h2 className="font-bold text-3xl md:text-4xl text-[#f2efe9] mb-4 tracking-wide">
             Our Purpose & Culture
           </h2>
+          <div className="w-16 h-1 bg-[#b75f20] mx-auto rounded-full" />
         </div>
 
         {/* Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-12">
           {pillars.map((pillar, i) => (
             <div
               key={i}
-              className="group flex flex-col items-center text-center animate-fade-up"
+              className="relative group w-full h-full animate-fade-up"
               style={{ animationDelay: `${i * 0.15}s` }}
             >
-              {/* Icon Container: Uses the dark green accent (#31412d) for the border, switching to #c49671 on hover */}
-              <div className="w-14 h-14 rounded-full bg-[#1A1A1A] border border-[#31412d] group-hover:border-[#c49671] flex items-center justify-center mb-6 transition-colors duration-400 shadow-[0_0_20px_rgba(0,0,0,0.2)]">
-                {pillar.icon}
+              {/* THE LAYERED SHADOW (Background Card) */}
+              <div className="absolute inset-0 bg-[#1A1A1A] rounded-2xl translate-x-2 translate-y-2 shadow-2xl z-0 transition-transform duration-500 group-hover:translate-x-3 group-hover:translate-y-3" />
+
+              {/* MAIN CARD CONTAINER */}
+              <div className="relative flex flex-col w-full h-full rounded-2xl overflow-hidden z-10 bg-[#242424] border border-[#f2efe9]/10">
+                
+                {/* Image Section */}
+                <div className="relative h-64 md:h-72 w-full overflow-hidden bg-[#1A1A1A]">
+                  <Image
+                    src={pillar.image}
+                    alt={pillar.title}
+                    fill
+                    className="object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700"
+                  />
+                  
+                  {/* Icon Badge floating on the bottom edge of the image */}
+                  <div className="absolute bottom-4 left-6 w-10 h-10 rounded-full bg-[#1A1A1A]/90 backdrop-blur-md border border-[#31412d] flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                    {pillar.icon}
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="flex flex-col p-6 flex-grow">
+                  <h3 className="font-bold text-xl text-[#f2efe9] mb-3 tracking-wide group-hover:text-[#b75f20] transition-colors duration-300">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-sm text-[#f2efe9]/80 leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </div>
+
               </div>
-
-              <h3 className="font-semibold text-xl text-[#f2efe9] mb-4 tracking-wide group-hover:text-[#c49671] transition-colors duration-300">
-                {pillar.title}
-              </h3>
-
-              <p className="text-sm text-[#f2efe9]/80 text-balance px-4 leading-relaxed">
-                {pillar.description}
-              </p>
             </div>
           ))}
         </div>
       </div>
-    </section> 
+    </section>
   );
 }

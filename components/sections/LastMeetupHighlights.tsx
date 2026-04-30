@@ -21,8 +21,8 @@ export function LastMeetupHighlights({ event }: LastMeetupHighlightsProps) {
 
   const images =
     event.event_media?.filter((m) => m.media_type === "image") || [];
-  const formattedDate = formatEventDate(event.start_time);
-  const timeAgo = getTimeAgo(event.start_time);
+  const formattedDate = formatEventDate(event.event_date || event.created_at);
+  const timeAgo = getTimeAgo(event.event_date || event.created_at);
 
   return (
     <section className="py-20 border-t border-[#31412d]/50 font-sans">
@@ -49,17 +49,6 @@ export function LastMeetupHighlights({ event }: LastMeetupHighlightsProps) {
               </div>
             </div>
           </div>
-
-          <Link
-            href={`/highlights/${event.id}`}
-            className="group inline-flex items-center gap-2 bg-transparent border border-[#c49671] text-[#c49671] hover:bg-[#c49671] hover:text-[#2c2627] font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300 whitespace-nowrap"
-          >
-            View Full Gallery
-            <ArrowRight
-              size={16}
-              className="transition-transform group-hover:translate-x-1"
-            />
-          </Link>
         </div>
 
         {/* Dynamic Editorial Grid (Bento Box Style) */}
@@ -107,30 +96,20 @@ export function LastMeetupHighlights({ event }: LastMeetupHighlightsProps) {
               </div>
             )}
 
-            {/* Image 4 or "More Photos" card: Small bottom right, spans 1 col & 1 row */}
+            {/* Image 4: Small bottom right, spans 1 col & 1 row */}
             {images.length > 3 && (
-              <Link
-                href={`/highlights/${event.id}`}
-                className="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-[#2c2627] rounded-xl h-[250px] md:h-full flex flex-col items-center justify-center border border-[#31412d] hover:border-[#c49671] transition-all duration-300"
-              >
+              <div className="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-[#2c2627] rounded-xl h-[250px] md:h-full border border-[#31412d]/30">
                 {images[3] && (
                   <Image
                     src={images[3].media_url}
                     alt={`${event.title} highlight 4`}
                     fill
-                    className="object-cover opacity-30 group-hover:opacity-20 transition-opacity duration-500"
+                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 25vw"
                   />
                 )}
-                <div className="relative z-10 text-center">
-                  <p className="text-4xl text-[#c49671] font-semibold mb-2">
-                    +{Math.max(images.length - 3, 1)}
-                  </p>
-                  <p className="text-sm font-medium text-[#f2efe9] flex items-center gap-2">
-                    <ImageIcon size={14} /> More Photos
-                  </p>
-                </div>
-              </Link>
+                <div className="absolute inset-0 bg-[#2c2627]/0 group-hover:bg-[#2c2627]/20 transition-colors duration-500" />
+              </div>
             )}
           </div>
         ) : (

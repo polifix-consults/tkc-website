@@ -68,10 +68,8 @@ export function AtelierSection() {
             src="/images/MonthlyInsight.jpeg"
             alt="Professionals engaging over a chess board"
             fill
-            className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 rounded-t-3xl lg:rounded-t-none lg:rounded-tl-3xl"
+            className="object-cover object-center transition-transform duration-700 hover:scale-105 rounded-t-3xl lg:rounded-t-none lg:rounded-tl-3xl"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#2c2627]/80 lg:from-transparent to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#2c2627]/90 lg:from-[#2c2627]/80 via-transparent to-transparent" />
         </div>
       </div>
     </section>
