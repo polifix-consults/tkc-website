@@ -28,7 +28,7 @@ const pillars = [
     title: "Our Culture",
     description:
       "A learning-oriented, community-driven space where senior professionals share insights and wisdom.",
-    image: "/images/professionalInsight.jpeg",
+    image: "/images/profnsight.jpeg",
   },
 ];
 
