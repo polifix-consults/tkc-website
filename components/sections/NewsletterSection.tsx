@@ -23,13 +23,13 @@ export function NewsletterSection() {
           method: "POST",
           body: formData,
           mode: "no-cors", // Mailchimp doesn't return CORS headers
-        }
+        },
       );
 
       // Since Mailchimp returns no-cors, we assume success if no error
       setIsSuccess(true);
       setEmail("");
-      
+
       // Reset success state after 5 seconds
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
@@ -46,27 +46,31 @@ export function NewsletterSection() {
         <h2 className="font-bold text-3xl md:text-4xl text-[#2c2627] mb-4 tracking-wide animate-fade-up">
           Subscribe to our newsletter & chess insights
         </h2>
-        <p className="text-[#2c2627]/70 mb-10 max-w-[600px] mx-auto animate-fade-up" style={{ animationDelay: "0.1s" }}>
-          Stay updated with the latest strategies, upcoming meetups, and community highlights delivered straight to your inbox.
+        <p
+          className="text-[#2c2627]/70 mb-10 max-w-[600px] mx-auto animate-fade-up"
+          style={{ animationDelay: "0.1s" }}
+        >
+          Stay updated with the latest strategies, upcoming meetups, and
+          community highlights delivered straight to your inbox.
         </p>
-        
-        <form 
+
+        <form
           onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-[500px] mx-auto animate-fade-up" 
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-[500px] mx-auto animate-fade-up"
           style={{ animationDelay: "0.2s" }}
         >
-          <input 
-            type="email" 
+          <input
+            type="email"
             name="EMAIL"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email address" 
+            placeholder="Enter your email address"
             className="w-full px-6 py-4 rounded-lg bg-white border border-[#2c2627]/20 text-[#2c2627] placeholder:text-[#2c2627]/40 focus:outline-none focus:border-[#b75f20] transition-colors"
             required
             disabled={isLoading || isSuccess}
           />
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={isLoading || isSuccess || !email.trim()}
             className="w-full sm:w-auto px-8 py-4 rounded-lg bg-[#b75f20] text-white font-semibold flex items-center justify-center gap-2 hover:bg-[#2c2627] transition-colors shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
           >

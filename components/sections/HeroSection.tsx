@@ -5,32 +5,38 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center bg-white pt-32 lg:pt-40 pb-16 font-sans">
       <div className="tkc-container max-w-[1400px] w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-        
         {/* Left Content */}
         <div className="flex flex-col max-w-[600px] z-10 pl-4 md:pl-8">
-          <div className="flex items-center gap-2 mb-8 animate-fade-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
+          <div
+            className="flex items-center gap-2 mb-8 animate-fade-in"
+            style={{ animationDelay: "0.1s", opacity: 0 }}
+          >
             <div className="w-1.5 h-1.5 rounded-full bg-[#2c2627]" />
             <p className="font-semibold text-[10px] uppercase tracking-[0.2em] text-[#2c2627]">
               Welcome to TKC
             </p>
           </div>
 
-          <h1 
+          <h1
             className="animate-fade-up font-bold text-[4rem] md:text-[4.5rem] leading-[1.05] tracking-tight text-[#2c2627] mb-8"
             style={{ animationDelay: "0.2s", opacity: 0 }}
           >
             Intentional Thinking & <br />
-            <span className="italic font-normal text-[#b75f20] pr-2">Clear Decisions.</span>
+            <span className="italic font-normal text-[#b75f20] pr-2">
+              Clear Decisions.
+            </span>
           </h1>
 
-          <p 
+          <p
             className="animate-fade-up text-base md:text-lg text-[#2c2627]/90 leading-relaxed max-w-[480px] mb-12"
             style={{ animationDelay: "0.3s", opacity: 0 }}
           >
-            Join a thoughtful gathering where the game of chess sharpens how we think and lead. Whether you are an experienced player or simply exploring the game, your seat at the board is waiting.
+            Join a thoughtful gathering where the game of chess sharpens how we
+            think and lead. Whether you are an experienced player or simply
+            exploring the game, your seat at the board is waiting.
           </p>
 
-          <div 
+          <div
             className="animate-fade-up flex flex-wrap items-center gap-6"
             style={{ animationDelay: "0.4s", opacity: 0 }}
           >
@@ -50,7 +56,7 @@ export function HeroSection() {
         </div>
 
         {/* Right Image Container */}
-        <div 
+        <div
           className="relative h-[400px] md:h-[600px] lg:h-[700px] w-full rounded-2xl md:rounded-l-3xl lg:rounded-[40px] ml-auto lg:translate-x-12 animate-fade-in group"
           style={{ animationDelay: "0.4s", opacity: 0 }}
         >
@@ -60,7 +66,7 @@ export function HeroSection() {
           {/* MAIN IMAGE CONTAINER */}
           <div className="relative w-full h-full rounded-2xl md:rounded-l-3xl lg:rounded-[40px] overflow-hidden z-10 border border-[#f2efe9]/10">
             <Image
-              src="/images/bIhero.jpeg" 
+              src="/images/bIhero.jpeg"
               alt="The Knights Collective Strategy Session"
               fill
               className="object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700"
@@ -75,7 +81,6 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#2c2627]/80 via-transparent to-[#2c2627]/30 pointer-events-none" />
           </div>
         </div>
-
       </div>
     </section>
   );
