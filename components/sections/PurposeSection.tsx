@@ -13,7 +13,7 @@ const pillars = [
     icon: <Network size={22} className="text-[#c49671]" />,
     title: "Professional Networking",
     description:
-      "Foster connections among thought leaders, innovators, and policy professionals.",
+      "Foster connections among thought leaders, innovators, and professionals.",
     image: "/images/bIhero.jpeg",
   },
   {
@@ -28,7 +28,7 @@ const pillars = [
     title: "Our Culture",
     description:
       "A learning-oriented, community-driven space where senior professionals share insights and wisdom.",
-    image: "/images/profnsight.jpeg",
+    image: "/images/wholeroom.jpeg",
   },
 ];
 

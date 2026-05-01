@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, Linkedin, Instagram } from "lucide-react";
+import { Facebook, Linkedin, Instagram } from "lucide-react";
 
 export function Footer() {
   return (
@@ -43,13 +43,13 @@ export function Footer() {
 
           {/* Socials */}
           <div className="flex items-center justify-center md:justify-end gap-5">
-            <a href="#" className="w-10 h-10 rounded-full bg-[#f2efe9] flex items-center justify-center text-[#2c2627] hover:bg-[#b75f20] hover:text-white transition-all duration-300">
-              <Twitter size={18} />
+            <a href="https://www.facebook.com/share/1Gz7GR3CcV/" className="w-10 h-10 rounded-full bg-[#f2efe9] flex items-center justify-center text-[#2c2627] hover:bg-[#b75f20] hover:text-white transition-all duration-300">
+              <Facebook size={18} />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-[#f2efe9] flex items-center justify-center text-[#2c2627] hover:bg-[#b75f20] hover:text-white transition-all duration-300">
+            <a href="https://www.linkedin.com/company/the-knights-collective-tkc/" className="w-10 h-10 rounded-full bg-[#f2efe9] flex items-center justify-center text-[#2c2627] hover:bg-[#b75f20] hover:text-white transition-all duration-300">
               <Linkedin size={18} />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-[#f2efe9] flex items-center justify-center text-[#2c2627] hover:bg-[#b75f20] hover:text-white transition-all duration-300">
+            <a href="https://www.instagram.com/tkc_sk?igsh=MXcxZ2kwaThtbzY4Mw==" className="w-10 h-10 rounded-full bg-[#f2efe9] flex items-center justify-center text-[#2c2627] hover:bg-[#b75f20] hover:text-white transition-all duration-300">
               <Instagram size={18} />
             </a>
           </div>

@@ -35,7 +35,7 @@ export function HeroSection() {
             style={{ animationDelay: "0.4s", opacity: 0 }}
           >
             <Link
-              href="/join"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeyJwStOb7J2G5y5HehqAL61EySRv_Dmp1dUR5d9UisOrdaJg/viewform"
               className="inline-flex items-center justify-center bg-[#b75f20] text-white font-medium text-sm px-8 py-3.5 rounded hover:bg-[#2c2627] transition-all duration-300"
             >
               Join the Community
