@@ -31,9 +31,8 @@ export function HeroSection() {
             className="animate-fade-up text-base md:text-lg text-[#2c2627]/90 leading-relaxed max-w-[480px] mb-12"
             style={{ animationDelay: "0.3s", opacity: 0 }}
           >
-            Join a thoughtful gathering where the game of chess sharpens how we
-            think and lead. Whether you are an experienced player or simply
-            exploring the game, your seat at the board is waiting.
+            A Chess community fostering strategy, connection, and thoughtful
+            engagement, one piece at a time.
           </p>
 
           <div

@@ -11,16 +11,14 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="mb-4">
               <Image
-                src="/images/tkcblack.png"
+                src="/images/tkc-build.png"
                 alt="The Knights Collective"
                 width={200}
                 height={60}
-                className="h-[50px] w-auto object-contain"
+                className="h-[80px] w-auto object-contain"
               />
             </Link>
-            <p className="text-[#2c2627]/70 font-medium italic">
-              "Building our community a piece at a time"
-            </p>
+           
           </div>
 
           {/* Navigation */}
@@ -28,6 +26,7 @@ export function Footer() {
             {[
               { href: "/events", label: "Events" },
               { href: "/about", label: "About" },
+              { href: "/resources", label: "Resources" },
             ].map((link) => (
               <li key={link.label}>
                 <Link

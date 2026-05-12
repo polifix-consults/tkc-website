@@ -1,5 +1,6 @@
 import { Brain, Network, Coffee, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const pillars = [
   {
@@ -86,6 +87,16 @@ export function PurposeSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Learn More Button */}
+        <div className="text-center mt-16 animate-fade-up">
+          <Link
+            href="/about"
+            className="inline-flex items-center justify-center bg-[#b75f20] text-white font-medium text-sm px-8 py-3.5 rounded hover:bg-[#2c2627] transition-all duration-300"
+          >
+            Learn More About Us
+          </Link>
         </div>
       </div>
     </section>
