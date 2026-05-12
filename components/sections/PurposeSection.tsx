@@ -48,9 +48,10 @@ export function PurposeSection() {
         {/* Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-12">
           {pillars.map((pillar, i) => (
-            <div
+            <Link
               key={i}
-              className="relative group w-full h-full animate-fade-up"
+              href="/about"
+              className="relative group w-full h-full animate-fade-up block"
               style={{ animationDelay: `${i * 0.15}s` }}
             >
               {/* THE LAYERED SHADOW (Background Card) */}
@@ -83,18 +84,8 @@ export function PurposeSection() {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
-        </div>
-
-        {/* Learn More Button */}
-        <div className="text-center mt-16 animate-fade-up">
-          <Link
-            href="/about"
-            className="inline-flex items-center justify-center bg-[#b75f20] text-white font-medium text-sm px-8 py-3.5 rounded hover:bg-[#2c2627] transition-all duration-300"
-          >
-            Learn More About Us
-          </Link>
         </div>
       </div>
     </section>
