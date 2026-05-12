@@ -58,7 +58,6 @@ export function PurposeSection() {
 
               {/* MAIN CARD CONTAINER */}
               <div className="relative flex flex-col w-full h-full rounded-2xl overflow-hidden z-10 bg-[#242424] border border-[#f2efe9]/10">
-                
                 {/* Image Section */}
                 <div className="relative h-64 md:h-72 w-full overflow-hidden bg-[#1A1A1A]">
                   <Image
@@ -67,7 +66,7 @@ export function PurposeSection() {
                     fill
                     className="object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700"
                   />
-                  
+
                   {/* Icon Badge floating on the bottom edge of the image */}
                   <div className="absolute bottom-4 left-6 w-10 h-10 rounded-full bg-[#1A1A1A]/90 backdrop-blur-md border border-[#31412d] flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                     {pillar.icon}
@@ -83,7 +82,6 @@ export function PurposeSection() {
                     {pillar.description}
                   </p>
                 </div>
-
               </div>
             </div>
           ))}

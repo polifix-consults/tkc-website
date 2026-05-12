@@ -18,7 +18,6 @@ export function Footer() {
                 className="h-[80px] w-auto object-contain"
               />
             </Link>
-           
           </div>
 
           {/* Navigation */}
