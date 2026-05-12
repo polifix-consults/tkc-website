@@ -13,7 +13,7 @@ export function HeroSection() {
           >
             <div className="w-1.5 h-1.5 rounded-full bg-[#2c2627]" />
             <p className="font-semibold text-[10px] uppercase tracking-[0.2em] text-[#2c2627]">
-              Welcome to TKC
+              WELCOME TO TKC
             </p>
           </div>
 
@@ -21,9 +21,9 @@ export function HeroSection() {
             className="animate-fade-up font-bold text-[4rem] md:text-[4.5rem] leading-[1.05] tracking-tight text-[#2c2627] mb-8"
             style={{ animationDelay: "0.2s", opacity: 0 }}
           >
-            Intentional Thinking & <br />
+            The Knights <br />
             <span className="italic font-normal text-[#b75f20] pr-2">
-              Clear Decisions.
+              Collective
             </span>
           </h1>
 
