@@ -4,7 +4,7 @@ import { getPosts, urlFor } from "@/lib/sanity";
 
 export async function AtelierSection() {
   const posts: Array<any> = await getPosts();
-  const previewPosts = posts.slice(0, 3);
+  const previewPosts = posts.slice(0, 2);
 
   return (
     // Applying the dark secondary background (#2c2627) and enforcing font-sans (Public Sans)
@@ -89,6 +89,15 @@ export async function AtelierSection() {
                 resources.
               </div>
             )}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/resources"
+              className="inline-flex items-center justify-center bg-[#b75f20] text-white font-medium text-sm px-8 py-3.5 rounded hover:bg-[#2c2627] transition-all duration-300"
+            >
+              View all resources
+            </Link>
           </div>
         </div>
 
