@@ -13,7 +13,7 @@ export async function AtelierSection() {
         {/* Left Content */}
         <div className="bg-[#31412d]/10 p-8 md:p-16 lg:pr-24 flex flex-col justify-center min-h-[500px]">
           <p className="font-bold text-[10px] uppercase tracking-[0.2em] text-[#c49671] mb-12">
-           RESOURCES & INSIGHTS
+            RESOURCES & INSIGHTS
           </p>
 
           <div className="grid gap-6">
