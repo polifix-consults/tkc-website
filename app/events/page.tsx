@@ -1,7 +1,7 @@
-import { EventCard } from "@/components/events/EventCard";
 import { eventsService } from "@/services/events.service";
 import { Metadata } from "next";
 import { EventGalleryCarousel } from "@/components/events/EventGalleryCarousel";
+import { EventTabs } from "@/components/events/EventTabs";
 
 export const metadata: Metadata = {
   title: "Events & Meetups | The Knight Club",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export const revalidate = 3600;
 
 export default async function EventsPage() {
-  const upcomingEvents = await eventsService.getUpcomingEvents(20);
+  const allEvents = await eventsService.getAllEvents();
 
   return (
     <main className="bg-white min-h-screen pt-32 pb-24 font-sans overflow-hidden">
@@ -40,27 +40,8 @@ export default async function EventsPage() {
           </div>
         </section>
 
-        <div className="mb-16">
-          <h1 className="font-bold text-3xl md:text-4xl text-[#2c2627] mb-4 tracking-wide">
-            Upcoming Events
-          </h1>
-          <div className="h-1 w-16 bg-[#b75f20] rounded-full" />
-        </div>
-
-        <div className="flex flex-col gap-6">
-          {upcomingEvents.length > 0 ? (
-            upcomingEvents.map((event, index) => (
-              <EventCard 
-                key={event.id} 
-                event={event} 
-                badgeText={event.is_featured ? "FEATURED EVENT" : "UPCOMING EVENT"} 
-              />
-            ))
-          ) : (
-             <div className="text-center py-16 border border-[#2c2627]/10 rounded-2xl bg-[#f2efe9]">
-               <p className="font-medium text-[#2c2627]/70">No upcoming events scheduled at the moment.</p>
-             </div>
-          )}
+        <div className="max-w-[1000px] mx-auto">
+          <EventTabs initialEvents={allEvents} />
         </div>
       </div>
     </main>

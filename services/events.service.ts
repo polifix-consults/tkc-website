@@ -96,5 +96,26 @@ export const eventsService = {
       console.error("Service error in getPastEvents:", error);
       return [];
     }
+  },
+
+  /**
+   * Fetch all events for tab filtering
+   */
+  async getAllEvents(): Promise<Event[]> {
+    try {
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .order("event_date", { ascending: false });
+
+      if (error) {
+        console.error("Error fetching all events:", error.message);
+        return [];
+      }
+      return data ?? [];
+    } catch (error) {
+      console.error("Service error in getAllEvents:", error);
+      return [];
+    }
   }
 };

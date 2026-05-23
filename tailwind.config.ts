@@ -67,6 +67,9 @@ const config: Config = {
         "fade-up": "fadeUp 0.7s ease forwards",
         "shimmer": "shimmer 2s linear infinite",
         "pulse-gold": "pulseGold 3s ease-in-out infinite",
+        "marquee-vertical-up": "marqueeVerticalUp 35s linear infinite",
+        "marquee-vertical-down": "marqueeVerticalDown 28s linear infinite",
+        "marquee-vertical-up-slow": "marqueeVerticalUp 42s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -84,6 +87,14 @@ const config: Config = {
         pulseGold: {
           "0%, 100%": { opacity: "0.6" },
           "50%": { opacity: "1" },
+        },
+        marqueeVerticalUp: {
+          "0%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(-50%)" },
+        },
+        marqueeVerticalDown: {
+          "0%": { transform: "translateY(-50%)" },
+          "100%": { transform: "translateY(0%)" },
         },
       },
       transitionTimingFunction: {

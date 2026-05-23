@@ -49,7 +49,7 @@ export default function AboutPage() {
               />
             </div>
             {/* Overlay Quote uses the primary brand color for emphasis */}
-            <div className="absolute -bottom-8 -left-8 bg-[#262626] border border-[#2c2627]/10 p-8 max-w-[340px] rounded-xl shadow-2xl hidden md:block z-20">
+            <div className="absolute -bottom-8 -left-8 bg-[#262626]/70 backdrop-blur-sm border border-[#2c2627]/10 p-8 max-w-[340px] rounded-xl shadow-2xl hidden md:block z-20">
               <p className="text-lg text-white leading-relaxed italic font-medium">
                 "A space where the timeless game of chess becomes a catalyst for
                 networking, collaboration, creativity, and leadership

@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="bg-white border-t border-[#2c2627]/10 py-16 font-sans">
       <div className="tkc-container max-w-[1400px] mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-center md:text-left mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center text-center md:text-left mb-16">
           {/* Brand & Tagline */}
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="mb-4">
@@ -21,22 +21,7 @@ export function Footer() {
           </div>
 
           {/* Navigation */}
-          <ul className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-            {[
-              { href: "/events", label: "Events" },
-              { href: "/about", label: "About" },
-              { href: "/resources", label: "Resources" },
-            ].map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className="text-sm font-semibold text-[#2c2627] hover:text-[#b75f20] transition-colors duration-200"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          
 
           {/* Socials */}
           <div className="flex items-center justify-center md:justify-end gap-5">

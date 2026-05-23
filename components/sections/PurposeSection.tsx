@@ -23,14 +23,7 @@ const pillars = [
     description:
       "Provide a semi-casual environment that blends professionalism with the joy of play.",
     image: "/images/relaxedex.jpeg",
-  },
-  {
-    icon: <Users size={22} className="text-[#c49671]" />,
-    title: "Our Culture",
-    description:
-      "A learning-oriented, community-driven space where senior professionals share insights and wisdom.",
-    image: "/images/wholeroom.jpeg",
-  },
+  }
 ];
 
 export function PurposeSection() {
@@ -40,7 +33,7 @@ export function PurposeSection() {
         {/* Header */}
         <div className="text-center mb-20 animate-fade-up">
           <h2 className="font-bold text-3xl md:text-4xl text-[#f2efe9] mb-4 tracking-wide">
-            Our Purpose & Culture
+            Our Purpose 
           </h2>
           <div className="w-16 h-1 bg-[#b75f20] mx-auto rounded-full" />
         </div>
