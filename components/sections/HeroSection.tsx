@@ -54,7 +54,7 @@ export function HeroSection() {
   const next2Index = (activeIndex + 2) % sliderImages.length;
 
   return (
-    <section className="relative h-screen lg:h-[100dvh] flex items-center justify-center bg-white pt-24 pb-8 lg:pt-28 overflow-hidden font-sans">
+    <section className="relative min-h-screen lg:h-[100dvh] flex items-center justify-center bg-white pt-28 pb-12 lg:pt-28 lg:pb-8 overflow-hidden font-sans">
       <div className="tkc-container max-w-[1400px] w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
         {/* Left Content */}
         <div className="flex flex-col max-w-[600px] z-10 pl-4 md:pl-8">
@@ -69,7 +69,7 @@ export function HeroSection() {
           </div>
 
           <h1
-            className="animate-fade-up font-bold text-[3.2rem] md:text-[3.8rem] xl:text-[4.5rem] leading-[1.05] tracking-tight text-[#2c2627] mb-6"
+            className="animate-fade-up font-bold text-[2.2rem] sm:text-[3.2rem] md:text-[3.8rem] xl:text-[4.5rem] leading-[1.05] tracking-tight text-[#2c2627] mb-6"
             style={{ animationDelay: "0.2s", opacity: 0 }}
           >
             Strategic <br />
