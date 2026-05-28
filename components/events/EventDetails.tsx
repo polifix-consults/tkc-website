@@ -53,8 +53,8 @@ export function EventDetails({ event, media = [] }: EventDetailsProps) {
     timeDisplay = "TBC";
   } else if (event.date) {
     const date = new Date(event.date);
-    dateDisplay = date.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
-    timeDisplay = date.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true });
+    dateDisplay = date.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", timeZone: "America/Toronto" });
+    timeDisplay = date.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true, timeZone: "America/Toronto" });
   }
 
   // Parse JSON arrays safely
@@ -149,34 +149,34 @@ export function EventDetails({ event, media = [] }: EventDetailsProps) {
             "absolute inset-0 flex items-end pb-16 z-20 transition-opacity duration-500 ease-in-out",
             isPast && "group-hover:opacity-0 pointer-events-none"
           )}>
-            <div className="w-full max-w-[1200px] mx-auto px-4 md:px-8">
-              <div className="max-w-2xl text-left">
+            <div className="w-full max-w-[1200px] mx-auto px-4 md:px-8 min-w-0">
+              <div className="max-w-2xl text-left min-w-0">
                 {event.is_featured && (
-                  <span className="inline-block bg-[#b75f20] text-white text-[9px] font-bold uppercase tracking-[0.2em] px-3.5 py-1 rounded-full mb-5 shadow-md">
+                  <span className="inline-block bg-[#b75f20] text-white text-[9px] font-bold uppercase tracking-[0.2em] px-3.5 py-1 rounded-full mb-5 shadow-md shrink-0">
                     Featured Event
                   </span>
                 )}
-                <h1 className="font-bold tracking-wide text-3xl md:text-5xl text-white mb-5">
+                <h1 className="font-bold tracking-wide text-3xl md:text-5xl text-white mb-5 line-clamp-2" title={event.title}>
                   {event.title}
                 </h1>
                 
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-white/90 mb-6">
-                  <div className="flex items-center gap-2">
-                    <Calendar size={16} className="text-[#b75f20]" />
-                    <span className="text-xs font-medium">{dateDisplay}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 text-white/90 mb-6 w-full min-w-0">
+                  <div className="flex items-center gap-2 min-w-0 shrink-0">
+                    <Calendar size={16} className="text-[#b75f20] shrink-0" />
+                    <span className="text-xs font-medium truncate">{dateDisplay}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Clock size={16} className="text-[#b75f20]" />
-                    <span className="text-xs font-medium">{timeDisplay}</span>
+                  <div className="flex items-center gap-2 min-w-0 shrink-0">
+                    <Clock size={16} className="text-[#b75f20] shrink-0" />
+                    <span className="text-xs font-medium truncate">{timeDisplay}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin size={16} className="text-[#b75f20]" />
-                    <span className="text-xs font-medium">{event.location || "TBA"}</span>
+                  <div className="flex items-center gap-2 min-w-0 flex-1 sm:max-w-[45%]">
+                    <MapPin size={16} className="text-[#b75f20] shrink-0" />
+                    <span className="text-xs font-medium truncate" title={event.location || "TBA"}>{event.location || "TBA"}</span>
                   </div>
                 </div>
 
                 {event.short_description && (
-                  <p className="text-base text-white/80 mb-6 leading-relaxed font-medium max-w-xl">
+                  <p className="text-base text-white/80 mb-6 leading-relaxed font-medium max-w-xl line-clamp-3">
                     {event.short_description}
                   </p>
                 )}

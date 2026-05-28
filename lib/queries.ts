@@ -158,20 +158,23 @@ export function formatEventDate(dateStr: string) {
   const date = new Date(dateStr);
 
   return {
-    weekday: date.toLocaleDateString("en-US", { weekday: "long" }),
+    weekday: date.toLocaleDateString("en-US", { weekday: "long", timeZone: "America/Toronto" }),
     full: date.toLocaleDateString("en-US", {
       month: "long",
       day: "numeric",
       year: "numeric",
+      timeZone: "America/Toronto",
     }),
     time: date.toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
+      timeZone: "America/Toronto",
     }),
-    short: date.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
+    short: date.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "America/Toronto" }),
     monthYear: date.toLocaleDateString("en-US", {
       month: "long",
       year: "numeric",
+      timeZone: "America/Toronto",
     }),
   };
 }
