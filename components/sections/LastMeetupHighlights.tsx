@@ -21,8 +21,8 @@ export function LastMeetupHighlights({ event }: LastMeetupHighlightsProps) {
 
   const images =
     event.event_media?.filter((m) => m.media_type === "image") || [];
-  const formattedDate = formatEventDate(event.event_date || event.created_at);
-  const timeAgo = getTimeAgo(event.event_date || event.created_at);
+  const formattedDate = formatEventDate(event.date || event.created_at);
+  const timeAgo = getTimeAgo(event.date || event.created_at);
 
   return (
     <section className="py-20 border-t border-[#31412d]/50 font-sans">

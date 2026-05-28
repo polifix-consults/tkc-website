@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Brain, Network, Coffee } from "lucide-react";
+import { 
+  Swords, 
+  Castle, 
+  Shield, 
+  Trophy, 
+  Crown, 
+  Target 
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About The Knights Collective",
@@ -18,15 +25,8 @@ export default function AboutPage() {
             <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#b75f20] mb-6">
               Our Vision <span className="mx-2">•</span> Brand Story
             </p>
-            <h1 className="mb-8">
-              <Image
-                src="/images/tkcblack.png"
-                alt="The Knights Collective"
-                width={800}
-                height={60}
-                className="h-[60px] w-auto object-contain"
-                priority
-              />
+            <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-[#2c2627] tracking-tight mb-8">
+              The Knights Collective
             </h1>
             <p className="text-[#2c2627]/80 leading-relaxed max-w-[440px] font-medium">
               The Knights Collective (TKC) is a strategic chess circle designed
@@ -36,9 +36,34 @@ export default function AboutPage() {
           </div>
 
           <div
-            className="relative animate-fade-in"
+            className="relative animate-fade-in group"
             style={{ animationDelay: "0.3s", opacity: 0 }}
           >
+            {/* FLOATING THEMATIC CHESS & STRATEGY ICONS */}
+            <Swords
+              size={40}
+              className="absolute -top-8 -left-8 text-[#b75f20]/45 -rotate-12 z-20 transition-all duration-700 group-hover:scale-110 pointer-events-none"
+            />
+            <Castle
+              size={36}
+              className="absolute -bottom-8 -left-6 text-[#2c2627]/30 rotate-12 z-0 transition-all duration-700 group-hover:scale-110 pointer-events-none"
+            />
+            <Shield
+              size={32}
+              className="absolute -top-10 -right-6 text-[#2c2627]/25 rotate-45 z-0 transition-all duration-700 group-hover:scale-110 pointer-events-none"
+            />
+            <Trophy
+              size={38}
+              className="absolute -bottom-8 -right-8 text-[#b75f20]/40 -rotate-12 z-20 transition-all duration-700 group-hover:scale-110 pointer-events-none"
+            />
+            <Crown
+              size={26}
+              className="absolute top-1/2 -left-10 text-[#2c2627]/20 -translate-y-1/2 rotate-12 z-20 transition-all duration-700 group-hover:scale-110 pointer-events-none"
+            />
+            <Target
+              size={30}
+              className="absolute top-1/3 -right-10 text-[#b75f20]/30 -translate-y-1/2 -rotate-12 z-0 transition-all duration-700 group-hover:scale-110 pointer-events-none"
+            />
             <div className="absolute inset-0 bg-[#b75f20] rounded-2xl translate-x-3 translate-y-3 shadow-2xl z-0" />
             <div className="relative z-10 h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl bg-white border border-[#2c2627]/10">
               <Image
@@ -210,22 +235,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Primary Brand Color CTA */}
-      <section
-        id="your-first-move"
-        className="bg-[#b75f20] py-24 text-center px-4"
-      >
-        <h2 className="font-bold text-4xl md:text-5xl leading-tight mb-8 text-white tracking-wide">
-          Building Our Community  <br />
-          <span className="italic font-normal text-[#2c2627]">a piece at a time</span>
-        </h2>
-        <Link
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeyJwStOb7J2G5y5HehqAL61EySRv_Dmp1dUR5d9UisOrdaJg/viewform"
-          className="inline-block bg-[#2c2627] text-white font-bold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-[#1A1A1A] hover:scale-105 transition-all duration-300 shadow-xl"
-        >
-          JOIN THE KNIGHTS COLLECTIVE TODAY
-        </Link>
-      </section>
+
     </div>
   );
 }

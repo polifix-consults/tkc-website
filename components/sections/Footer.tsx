@@ -7,17 +7,8 @@ export function Footer() {
     <footer className="bg-white border-t border-[#2c2627]/10 py-16 font-sans">
       <div className="tkc-container max-w-[1400px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center text-center md:text-left mb-16">
-          {/* Brand & Tagline */}
+          {/* Brand Tagline Removed */}
           <div className="flex flex-col items-center md:items-start">
-            <Link href="/" className="mb-4">
-              <Image
-                src="/images/tkc-build.png"
-                alt="The Knights Collective"
-                width={200}
-                height={60}
-                className="h-[80px] w-auto object-contain"
-              />
-            </Link>
           </div>
 
           {/* Navigation */}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getPosts, urlFor } from "@/lib/sanity";
+import { Swords, Crown, Shield, Trophy, Castle, Target } from "lucide-react";
 
 // Next.js Metadata API for SEO
 export const metadata = {
@@ -21,8 +22,36 @@ export default async function ResourcesPage() {
   const posts = await getPosts();
 
   return (
-    <div className="bg-white min-h-screen pt-32 pb-24 font-sans">
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div className="bg-white min-h-screen pt-32 pb-24 font-sans overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 relative">
+        
+        {/* FLOATING THEMATIC CHESS & STRATEGY ICONS */}
+        <div className="absolute inset-0 pointer-events-none z-0 hidden lg:block">
+          <Swords
+            size={36}
+            className="absolute top-12 left-0 text-[#b75f20]/25 -rotate-12 transition-all duration-700 hover:rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+          <Crown
+            size={32}
+            className="absolute top-48 right-0 text-[#2c2627]/15 rotate-12 transition-all duration-700 hover:-rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+          <Shield
+            size={30}
+            className="absolute bottom-48 left-2 text-[#2c2627]/15 rotate-45 transition-all duration-700 hover:-rotate-45 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+          <Trophy
+            size={34}
+            className="absolute bottom-16 right-2 text-[#b75f20]/25 -rotate-12 transition-all duration-700 hover:rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+          <Castle
+            size={32}
+            className="absolute top-1/2 left-4 text-[#2c2627]/15 rotate-12 transition-all duration-700 hover:-rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+          <Target
+            size={28}
+            className="absolute top-2/3 right-6 text-[#b75f20]/25 -rotate-45 transition-all duration-700 hover:rotate-45 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+        </div>
         
         {/* Header */}
         <div className="mb-20 animate-fade-up text-center lg:text-left" style={{ animationDelay: "0.1s", opacity: 0 }}>

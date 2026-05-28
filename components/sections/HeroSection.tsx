@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Swords,
   Castle,
@@ -10,48 +9,101 @@ import {
   Trophy,
   Crown,
   Target,
+  Play,
+  RotateCcw,
+  ArrowRight,
 } from "lucide-react";
 
-const sliderImages = [
-  "/images/bIhero.jpeg",
-  "/images/strategic.jpeg",
-  "/images/eventhh.jpeg",
-  "/images/aboutImg.jpeg",
-  "/images/Professionals.jpeg",
-  "/images/relaxedex.jpeg",
-  "/images/wholeroom.jpeg",
-  "/images/professionalinsight.jpeg",
-  "/images/sectionImg.jpeg",
-  "/images/MonthlyInsight.jpeg",
-  "/images/heronewImg.jpeg",
-  "/images/profnsight.jpeg",
-];
-
 export function HeroSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isShuffling, setIsShuffling] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [showCta, setShowCta] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    if (isPaused) return;
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    const interval = setInterval(() => {
-      // 1. Trigger the shuffle slide-out animation
-      setIsShuffling(true);
+  const getFloatingStyle = (
+    baseYFactor: number,
+    rotateDeg: number,
+    hScale: number,
+    hX: number,
+    hY: number,
+    hasPercentY: boolean = false
+  ) => {
+    const scrollYOffset = scrollY * baseYFactor;
+    const currentScale = isHovered ? hScale : 1;
+    const currentX = isHovered ? hX : 0;
+    const currentY = scrollYOffset + (isHovered ? hY : 0);
+    
+    const translateStr = hasPercentY
+      ? `translate(${currentX}px, calc(-50% + ${currentY}px))`
+      : `translate(${currentX}px, ${currentY}px)`;
 
-      // 2. Wait for transition (700ms), then shift the active index and reset shuffle state
-      setTimeout(() => {
-        setActiveIndex((prev) => (prev + 1) % sliderImages.length);
-        setIsShuffling(false);
-      }, 700); // Matches the Tailwind transition duration (duration-700)
-    }, 4000); // Shuffle every 4 seconds
+    return {
+      transform: `${translateStr} rotate(${rotateDeg}deg) scale(${currentScale})`,
+      transition: isHovered 
+        ? "transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)" 
+        : "transform 0.1s ease-out",
+    };
+  };
 
-    return () => clearInterval(interval);
-  }, [isPaused]);
+  // Typing animation states
+  const [typedText, setTypedText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+  const fullText = "for you.";
 
-  // Compute the index of the next 2 cards in the stack
-  const next1Index = (activeIndex + 1) % sliderImages.length;
-  const next2Index = (activeIndex + 2) % sliderImages.length;
+  useEffect(() => {
+    let index = 0;
+    const startTimeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        setTypedText(fullText.slice(0, index + 1));
+        index++;
+        if (index >= fullText.length) {
+          clearInterval(interval);
+          setTimeout(() => setShowCursor(false), 1200);
+        }
+      }, 150);
+      return () => clearInterval(interval);
+    }, 400);
+
+    return () => clearTimeout(startTimeout);
+  }, []);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+      setShowCta(false);
+    }
+  };
+
+  const handlePause = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const handleVideoEnded = () => {
+    setIsPlaying(false);
+    setShowCta(true);
+  };
+
+  const handleReplay = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+      setIsPlaying(true);
+      setShowCta(false);
+    }
+  };
 
   return (
     <section className="relative min-h-screen lg:h-[100dvh] flex items-center justify-center bg-white pt-28 pb-12 lg:pt-28 lg:pb-8 overflow-hidden font-sans">
@@ -62,9 +114,8 @@ export function HeroSection() {
             className="flex items-center gap-2 mb-4 animate-fade-in"
             style={{ animationDelay: "0.1s", opacity: 0 }}
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-[#2c2627]" />
             <p className="font-semibold text-[10px] uppercase tracking-[0.2em] text-[#2c2627]">
-              WELCOME TO THE COMMUNITY
+              WELCOME TO TKC
             </p>
           </div>
 
@@ -72,24 +123,25 @@ export function HeroSection() {
             className="animate-fade-up font-bold text-[2.2rem] sm:text-[3.2rem] md:text-[3.8rem] xl:text-[4.5rem] leading-[1.05] tracking-tight text-[#2c2627] mb-6"
             style={{ animationDelay: "0.2s", opacity: 0 }}
           >
-            Strategic <br />
-            Thinking, <br />
-            <span className="italic font-normal text-[#b75f20] pr-2">
-              INTELLECT &
+            A Strategic <br />
+            Chess Community <br />
+            <span className="italic font-normal text-[#b75f20] pr-1 inline-flex items-center min-w-[3em]">
+              {typedText}
+              {showCursor && (
+                <span className="inline-block w-[2px] h-[0.8em] bg-[#b75f20] ml-1 align-middle animate-pulse" />
+              )}
             </span>{" "}
             <br />
-            <span className="italic font-normal text-[#b75f20]">
-              INNOVATION.
-            </span>
           </h1>
 
           <p
             className="animate-fade-up text-sm md:text-base text-[#2c2627]/85 leading-relaxed max-w-[460px] mb-8"
             style={{ animationDelay: "0.3s", opacity: 0 }}
           >
-            The Knights Collective (TKC) is a strategic chess circle designed to
-            bring together professionals who value intellect, innovation, and
-            strategic thinking.
+            The Knights Collective is a chess community created to bring people
+            together through strategy, learning, and connection. We welcome
+            players of all levels and backgrounds into a safe space where
+            growth, confidence, and community thrive.{" "}
           </p>
 
           <div
@@ -100,104 +152,122 @@ export function HeroSection() {
               href="https://docs.google.com/forms/d/e/1FAIpQLSeyJwStOb7J2G5y5HehqAL61EySRv_Dmp1dUR5d9UisOrdaJg/viewform"
               className="inline-flex items-center justify-center bg-[#2c2627] text-white font-medium text-sm px-8 py-3.5 rounded hover:bg-[#b75f20] transition-all duration-300 shadow-md"
             >
-              Join the community 
+              Join the community
             </Link>
-            <Link
-              href="#strategy-video"
-              className="inline-flex items-center gap-2 text-[#2c2627] font-semibold text-sm hover:text-[#b75f20] transition-all duration-300"
+            <button
+              onClick={handlePlay}
+              className="inline-flex items-center gap-2 text-[#2c2627] font-semibold text-sm hover:text-[#b75f20] transition-all duration-300 cursor-pointer"
             >
               Explore Strategy <span className="text-lg">→</span>
-            </Link>
+            </button>
           </div>
         </div>
 
-        {/* Right Image Container (Shuffling Slider & Floating Icons) */}
+        {/* Right Video Container (Premium Card & Floating Icons) */}
         <div
-          className="relative h-[380px] md:h-[500px] lg:h-[550px] w-full max-w-[500px] lg:max-w-none ml-auto lg:translate-x-12 animate-fade-in group z-10 -rotate-2"
+          className="relative w-full aspect-[4/3] max-w-[540px] lg:max-w-[620px] ml-auto lg:translate-x-12 animate-fade-in group z-10 -rotate-2"
           style={{ animationDelay: "0.4s", opacity: 0 }}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
           {/* FLOATING THEMATIC CHESS & STRATEGY ICONS */}
-          {/* 1. Swords (representing battle/tactics - top-left, front) */}
           <Swords
             size={44}
-            className="absolute -top-10 -left-10 text-[#b75f20]/45 -rotate-12 z-20 transition-all duration-700 group-hover:scale-115 group-hover:-translate-y-2 group-hover:-translate-x-1 pointer-events-none"
+            className="absolute -top-10 -left-10 text-[#b75f20]/45 z-20 pointer-events-none"
+            style={getFloatingStyle(-0.15, -12, 1.15, -4, -8)}
           />
-          {/* 2. Castle (representing Rook/fortification - bottom-left, behind) */}
           <Castle
             size={38}
-            className="absolute -bottom-8 -left-8 text-[#2c2627]/30 rotate-12 z-0 transition-all duration-700 group-hover:scale-110 group-hover:translate-y-2 group-hover:-translate-x-1 pointer-events-none"
+            className="absolute -bottom-8 -left-8 text-[#2c2627]/30 z-0 pointer-events-none"
+            style={getFloatingStyle(0.1, 12, 1.1, -4, 8)}
           />
-          {/* 3. Shield (representing Bishop/defense - top-right, behind) */}
           <Shield
             size={36}
-            className="absolute -top-12 -right-6 text-[#2c2627]/25 rotate-45 z-0 transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-2 group-hover:translate-x-1 pointer-events-none"
+            className="absolute -top-12 -right-6 text-[#2c2627]/25 z-0 pointer-events-none"
+            style={getFloatingStyle(-0.1, 45, 1.1, 4, -8)}
           />
-          {/* 4. Trophy (representing victory/checkmate - bottom-right, front) */}
           <Trophy
             size={42}
-            className="absolute -bottom-10 -right-10 text-[#b75f20]/40 -rotate-12 z-20 transition-all duration-700 group-hover:scale-115 group-hover:translate-y-2 group-hover:translate-x-1 pointer-events-none"
+            className="absolute -bottom-10 -right-10 text-[#b75f20]/40 z-20 pointer-events-none"
+            style={getFloatingStyle(0.12, -12, 1.15, 4, 8)}
           />
-          {/* 5. Crown (representing King/Queen - mid-left, front) */}
           <Crown
             size={28}
-            className="absolute top-1/2 -left-12 text-[#2c2627]/20 -translate-y-1/2 rotate-12 z-20 transition-all duration-700 group-hover:scale-120 group-hover:-translate-x-2 pointer-events-none"
+            className="absolute top-1/2 -left-12 text-[#2c2627]/20 z-20 pointer-events-none"
+            style={getFloatingStyle(-0.12, 12, 1.2, -8, 0, true)}
           />
-          {/* 6. Target (representing calculation/strategy - mid-right, behind) */}
           <Target
             size={32}
-            className="absolute top-1/3 -right-12 text-[#b75f20]/30 -translate-y-1/2 -rotate-12 z-0 transition-all duration-700 group-hover:scale-120 group-hover:translate-x-2 pointer-events-none"
+            className="absolute top-1/3 -right-12 text-[#b75f20]/30 z-0 pointer-events-none"
+            style={getFloatingStyle(0.08, -12, 1.2, 8, 0, true)}
           />
 
-          {/* THE LAYERED SHADOW (Background Card) */}
-          <div className="absolute inset-0 bg-[#2c2627] rounded-[3rem] translate-x-3 translate-y-3 shadow-2xl z-0" />
+          {/* Underlay Shadow Card */}
+          <div className="absolute inset-0 bg-[#2c2627] rounded-[2rem] md:rounded-[3rem] translate-x-3 translate-y-3 shadow-2xl z-0" />
 
-          {/* MAIN SHUFFLE DECK */}
-          <div className="relative w-full h-full rounded-[3rem] z-10">
-            {sliderImages.map((src, i) => {
-              const isTop = i === activeIndex;
-              const isNext1 = i === next1Index;
-              const isNext2 = i === next2Index;
+          {/* Main Video Frame */}
+          <div className="relative w-full h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-[#2c2627] z-10 shadow-lg">
+            <video
+              ref={videoRef}
+              src="/videos/tkc intro.webm"
+              poster="/images/relaxedex.jpeg"
+              className="w-full h-full object-contain cursor-pointer"
+              onEnded={handleVideoEnded}
+              onClick={isPlaying ? handlePause : handlePlay}
+              controls={isPlaying && !showCta}
+              autoPlay
+              muted
+              playsInline
+            />
 
-              // Default state: hidden deck cards (scale down, transparent, bottom z-index)
-              let cardStyles = "scale-90 opacity-0 z-0 pointer-events-none";
-
-              if (isTop) {
-                // Top active card slides off right and rotates slightly during shuffling
-                cardStyles = isShuffling
-                  ? "translate-x-[110%] rotate-6 scale-95 opacity-0 z-30 pointer-events-none"
-                  : "translate-x-0 rotate-0 scale-100 opacity-100 z-30";
-              } else if (isNext1) {
-                // Second card scales up to the top active spot
-                cardStyles = isShuffling
-                  ? "translate-x-0 rotate-0 scale-100 opacity-100 z-30"
-                  : "translate-x-2 translate-y-2 scale-[0.97] opacity-90 z-20";
-              } else if (isNext2) {
-                // Third card scales up to the second spot
-                cardStyles = isShuffling
-                  ? "translate-x-2 translate-y-2 scale-[0.97] opacity-90 z-20"
-                  : "translate-x-4 translate-y-4 scale-[0.94] opacity-70 z-10";
-              }
-
-              return (
-                <div
-                  key={i}
-                  className={`absolute inset-0 rounded-[3rem] overflow-hidden bg-transparent transition-all duration-700 ease-in-out ${cardStyles}`}
-                >
-                  <Image
-                    src={src}
-                    alt="The Knights Collective chess session"
-                    fill
-                    priority={isTop || isNext1}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-center"
-                  />
-                  {/* Subtle dark gradient overlay at bottom edge of image */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+            {/* Custom Play Overlay (Shown initially and when paused) */}
+            {!isPlaying && !showCta && (
+              <div
+                className="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer transition-opacity duration-500 z-20"
+                onClick={handlePlay}
+              >
+                <div className="relative flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:scale-110 transition-transform duration-300 shadow-xl group/play animate-fade-in">
+                  <div className="flex items-center justify-center w-14 h-14 md:w-18 md:h-18 rounded-full bg-[#b75f20] text-white shadow-inner transition-colors duration-300 group-hover/play:bg-[#2c2627]">
+                    <Play size={28} className="fill-current ml-1" />
+                  </div>
+                  {/* Rippling pulse animation */}
+                  <div className="absolute inset-0 rounded-full border-2 border-[#b75f20]/50 animate-ping opacity-75 pointer-events-none" />
                 </div>
-              );
-            })}
+              </div>
+            )}
+
+            {/* Dynamic Glassmorphic CTA Overlay (Shown when video ends) */}
+            {showCta && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#2c2627]/85 backdrop-blur-md p-6 md:p-12 text-center text-white z-30 transition-all duration-500 animate-fade-in">
+                <div className="max-w-[400px]">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#b75f20]/20 text-[#b75f20] mb-4">
+                    <Crown size={24} />
+                  </div>
+                  <h3 className="font-bold text-xl md:text-2xl lg:text-3xl text-white mb-4 tracking-tight leading-tight">
+                    Uncover the Collective
+                  </h3>
+                  <p className="text-[11px] md:text-xs text-white/80 mb-6 leading-relaxed">
+                    Our strategy extends beyond the chessboard. Discover the
+                    community of professionals, tournaments, and curated events
+                    that make up The Knight Club.
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <Link
+                      href="/about"
+                      className="inline-flex items-center justify-center gap-2 bg-[#b75f20] text-white font-medium text-xs px-6 py-3 rounded hover:bg-[#b75f20]/90 transition-all duration-300 shadow-md w-full sm:w-auto"
+                    >
+                      About the Club <ArrowRight size={14} />
+                    </Link>
+                    <button
+                      onClick={handleReplay}
+                      className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-medium text-xs px-5 py-3 rounded hover:bg-white/10 transition-all duration-300 w-full sm:w-auto"
+                    >
+                      <RotateCcw size={14} /> Replay
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

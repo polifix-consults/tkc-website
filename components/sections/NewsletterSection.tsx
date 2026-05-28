@@ -1,6 +1,16 @@
 "use client";
 
-import { ArrowRight, Loader2, Check } from "lucide-react";
+import { 
+  ArrowRight, 
+  Loader2, 
+  Check,
+  Swords,
+  Castle,
+  Shield,
+  Trophy,
+  Crown,
+  Target
+} from "lucide-react";
 import { useState } from "react";
 
 export function NewsletterSection() {
@@ -41,10 +51,36 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="bg-[#f2efe9] py-24 border-t border-[#2c2627]/10 font-sans">
-      <div className="tkc-container max-w-[800px] mx-auto px-4 text-center">
+    <section className="relative bg-[#f2efe9] py-24 border-t border-[#2c2627]/10 font-sans overflow-hidden group">
+      {/* FLOATING THEMATIC CHESS & STRATEGY ICONS */}
+      <Swords
+        size={36}
+        className="absolute -top-4 -left-4 sm:top-6 sm:left-6 text-[#b75f20]/15 sm:text-[#b75f20]/20 -rotate-12 transition-transform duration-700 group-hover:scale-110 pointer-events-none animate-fade-in"
+      />
+      <Castle
+        size={32}
+        className="absolute -bottom-4 -left-4 sm:bottom-6 sm:left-12 text-[#2c2627]/10 sm:text-[#2c2627]/15 rotate-12 transition-transform duration-700 group-hover:scale-110 pointer-events-none animate-fade-in"
+      />
+      <Shield
+        size={30}
+        className="absolute -top-4 -right-4 sm:top-8 sm:right-12 text-[#2c2627]/10 sm:text-[#2c2627]/15 rotate-45 transition-transform duration-700 group-hover:scale-110 pointer-events-none animate-fade-in"
+      />
+      <Trophy
+        size={34}
+        className="absolute -bottom-4 -right-4 sm:bottom-6 sm:right-6 text-[#b75f20]/15 sm:text-[#b75f20]/20 -rotate-12 transition-transform duration-700 group-hover:scale-110 pointer-events-none animate-fade-in"
+      />
+      <Crown
+        size={24}
+        className="hidden md:absolute top-1/2 left-24 text-[#2c2627]/10 -translate-y-1/2 rotate-12 transition-transform duration-700 group-hover:scale-115 pointer-events-none animate-fade-in"
+      />
+      <Target
+        size={28}
+        className="hidden md:absolute top-1/3 right-20 text-[#b75f20]/10 -translate-y-1/2 -rotate-12 transition-transform duration-700 group-hover:scale-115 pointer-events-none animate-fade-in"
+      />
+
+      <div className="tkc-container max-w-[800px] mx-auto px-4 text-center relative z-10">
         <h2 className="font-bold text-3xl md:text-4xl text-[#2c2627] mb-4 tracking-wide animate-fade-up">
-          Subscribe to our newsletter & chess insights
+          Subscribe to our newsletter & insights
         </h2>
         <p
           className="text-[#2c2627]/70 mb-10 max-w-[600px] mx-auto animate-fade-up"

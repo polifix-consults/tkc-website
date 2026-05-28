@@ -35,5 +35,7 @@ export default async function EventPage({ params }: EventPageProps) {
     notFound();
   }
 
-  return <EventDetails event={event} />;
+  const media = await eventsService.getEventMedia(event.id);
+
+  return <EventDetails event={event} media={media} />;
 }

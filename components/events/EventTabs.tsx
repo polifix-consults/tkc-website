@@ -18,8 +18,11 @@ export function EventTabs({ initialEvents }: EventTabsProps) {
 
   // Filter events based on browser date
   const filteredEvents = initialEvents.filter((event) => {
-    if (!event.event_date) return false;
-    const eventDate = new Date(event.event_date);
+    if (event.date_is_tbc) {
+      return activeTab === "upcoming";
+    }
+    if (!event.date) return false;
+    const eventDate = new Date(event.date);
     const referenceDate = currentDate || new Date(); // fallback to current server/client date during render
 
     if (activeTab === "upcoming") {
@@ -30,11 +33,15 @@ export function EventTabs({ initialEvents }: EventTabsProps) {
   });
 
   // Sort events:
-  // Upcoming: Ascending (soonest first)
+  // Upcoming: Ascending (soonest first), with TBC events at the end
   // Past: Descending (most recent first)
   const sortedEvents = [...filteredEvents].sort((a, b) => {
-    const timeA = new Date(a.event_date!).getTime();
-    const timeB = new Date(b.event_date!).getTime();
+    if (activeTab === "upcoming") {
+      if (a.date_is_tbc && !b.date_is_tbc) return 1;
+      if (!a.date_is_tbc && b.date_is_tbc) return -1;
+    }
+    const timeA = a.date ? new Date(a.date).getTime() : 0;
+    const timeB = b.date ? new Date(b.date).getTime() : 0;
     return activeTab === "upcoming" ? timeA - timeB : timeB - timeA;
   });
 

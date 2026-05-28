@@ -11,7 +11,7 @@ export const eventsService = {
         .from("events")
         .select("*")
         .eq("is_featured", true)
-        .order("event_date", { ascending: true })
+        .order("date", { ascending: true })
         .limit(1)
         .single();
 
@@ -39,7 +39,7 @@ export const eventsService = {
         .eq("status", "upcoming")
         // Alternatively, use event_date > now():
         // .gt("event_date", new Date().toISOString())
-        .order("event_date", { ascending: true })
+        .order("date", { ascending: true })
         .limit(limit);
 
       if (error) {
@@ -84,7 +84,7 @@ export const eventsService = {
         .from("events")
         .select("*")
         .eq("status", "past")
-        .order("event_date", { ascending: false })
+        .order("date", { ascending: false })
         .limit(limit);
 
       if (error) {
@@ -106,7 +106,7 @@ export const eventsService = {
       const { data, error } = await supabase
         .from("events")
         .select("*")
-        .order("event_date", { ascending: false });
+        .order("date", { ascending: false });
 
       if (error) {
         console.error("Error fetching all events:", error.message);
@@ -115,6 +115,28 @@ export const eventsService = {
       return data ?? [];
     } catch (error) {
       console.error("Service error in getAllEvents:", error);
+      return [];
+    }
+  },
+
+  /**
+   * Fetch all event media for a specific event
+   */
+  async getEventMedia(eventId: string) {
+    try {
+      const { data, error } = await supabase
+        .from("event_media")
+        .select("*")
+        .eq("event_id", eventId)
+        .order("sort_order", { ascending: true });
+
+      if (error) {
+        console.error("Error fetching event media:", error.message);
+        return [];
+      }
+      return data ?? [];
+    } catch (error) {
+      console.error("Service error in getEventMedia:", error);
       return [];
     }
   }

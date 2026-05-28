@@ -1,5 +1,4 @@
 import { HeroSection } from "@/components/sections/HeroSection";
-import { StrategyVideoSection } from "@/components/sections/StrategyVideoSection";
 import { EventSection } from "@/components/events/EventSection";
 import { NewsletterSection } from "@/components/sections/NewsletterSection";
 
@@ -9,7 +8,6 @@ export default async function HomePage() {
   return (
     <>
       <HeroSection />
-      <StrategyVideoSection />
       <EventSection />
       <NewsletterSection />
     </>

@@ -1,7 +1,7 @@
 import { eventsService } from "@/services/events.service";
 import { Metadata } from "next";
-import { EventGalleryCarousel } from "@/components/events/EventGalleryCarousel";
 import { EventTabs } from "@/components/events/EventTabs";
+import { Swords, Crown, Shield, Trophy, Castle, Target } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Events & Meetups | The Knight Club",
@@ -15,32 +15,37 @@ export default async function EventsPage() {
 
   return (
     <main className="bg-white min-h-screen pt-32 pb-24 font-sans overflow-hidden">
-      <div className="tkc-container max-w-[1200px] mx-auto px-4 md:px-8">
+      <div className="tkc-container max-w-[1200px] mx-auto px-4 md:px-8 relative">
         
-        {/* Past Event Gallery Section */}
-        <section className="mb-24">
-          <div className="mb-12 text-center">
-            <h2 className="font-bold text-4xl md:text-5xl text-[#2c2627] mb-4 tracking-wide">
-              Event Gallery
-            </h2>
-            <p className="text-sm font-bold tracking-widest text-[#2c2627]/50 uppercase mb-6">Moments from Past Gatherings</p>
-            <div className="h-1 w-16 bg-[#b75f20] mx-auto rounded-full" />
-          </div>
+        {/* FLOATING THEMATIC CHESS & STRATEGY ICONS */}
+        <div className="absolute inset-0 pointer-events-none z-0 hidden lg:block">
+          <Swords
+            size={36}
+            className="absolute top-12 left-0 text-[#b75f20]/25 -rotate-12 transition-all duration-700 hover:rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+          <Crown
+            size={32}
+            className="absolute top-48 right-0 text-[#2c2627]/15 rotate-12 transition-all duration-700 hover:-rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+          <Shield
+            size={30}
+            className="absolute bottom-48 left-2 text-[#2c2627]/15 rotate-45 transition-all duration-700 hover:-rotate-45 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+          <Trophy
+            size={34}
+            className="absolute bottom-16 right-2 text-[#b75f20]/25 -rotate-12 transition-all duration-700 hover:rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+          <Castle
+            size={32}
+            className="absolute top-1/2 left-4 text-[#2c2627]/15 rotate-12 transition-all duration-700 hover:-rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+          <Target
+            size={28}
+            className="absolute top-2/3 right-6 text-[#b75f20]/25 -rotate-45 transition-all duration-700 hover:rotate-45 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
+          />
+        </div>
 
-          <div className="-mx-4 md:-mx-8">
-            <EventGalleryCarousel images={[
-                "/images/eventhh.jpeg",
-                "/images/Professionals.jpeg",
-                "/images/MonthlyInsight.jpeg",
-                "/images/strategic.jpeg",
-                "/images/relaxedex.jpeg",
-                "/images/bIhero.jpeg",
-              ]} 
-            />
-          </div>
-        </section>
-
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-[1000px] mx-auto relative z-10">
           <EventTabs initialEvents={allEvents} />
         </div>
       </div>

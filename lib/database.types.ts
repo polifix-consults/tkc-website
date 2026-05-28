@@ -18,7 +18,7 @@ export interface Database {
           description: string | null;
           location: string | null;
           venue_note: string | null;
-          event_date: string | null;
+          date: string | null;
           end_time: string | null;
           event_type: string | null;
           skill_level: string | null;
@@ -30,6 +30,7 @@ export interface Database {
           email_subject: string | null;
           email_body_template: string | null;
           is_featured: boolean;
+          date_is_tbc?: boolean | null;
           status: string;
           cover_image_url: string | null;
           created_at: string;
@@ -42,7 +43,7 @@ export interface Database {
           description?: string | null;
           location?: string | null;
           venue_note?: string | null;
-          event_date?: string | null;
+          date?: string | null;
           end_time?: string | null;
           event_type?: string | null;
           skill_level?: string | null;
@@ -54,6 +55,7 @@ export interface Database {
           email_subject?: string | null;
           email_body_template?: string | null;
           is_featured?: boolean;
+          date_is_tbc?: boolean | null;
           status?: string;
           cover_image_url?: string | null;
           created_at?: string;

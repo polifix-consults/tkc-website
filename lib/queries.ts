@@ -30,8 +30,8 @@ export async function getLastMeetup(): Promise<EventWithMedia | null> {
         )
       `,
       )
-      .lt("event_date", new Date().toISOString()) // past events only
-      .order("event_date", { ascending: false }) // most recent first
+      .lt("date", new Date().toISOString()) // past events only
+      .order("date", { ascending: false }) // most recent first
       .order("sort_order", { referencedTable: "event_media", ascending: true })
       .limit(1)
       .single();
@@ -64,8 +64,8 @@ export async function getPastEvents(
     const { data, error } = await supabase
       .from("events")
       .select("*")
-      .lt("event_date", new Date().toISOString()) // past events only
-      .order("event_date", { ascending: false }) // most recent first
+      .lt("date", new Date().toISOString()) // past events only
+      .order("date", { ascending: false }) // most recent first
       .range(offset, offset + limit - 1);
 
     if (error) {
@@ -92,8 +92,8 @@ export async function getUpcomingEvents(limit: number = 6): Promise<Event[]> {
     const { data, error } = await supabase
       .from("events")
       .select("*")
-      .gt("event_date", new Date().toISOString()) // future events only
-      .order("event_date", { ascending: true }) // soonest first
+      .gt("date", new Date().toISOString()) // future events only
+      .order("date", { ascending: true }) // soonest first
       .limit(limit);
 
     if (error) {

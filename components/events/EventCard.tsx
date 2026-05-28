@@ -19,7 +19,7 @@ interface EventCardProps {
 }
 
 export function EventCard({ event, href, badgeText = "UPCOMING EVENT" }: EventCardProps) {
-  const dateInfo = formatCardDateInfo(event.event_date);
+  const dateInfo = formatCardDateInfo(event.date);
   const cardHref = href || `/events/${event.slug}`;
 
   return (
@@ -53,7 +53,7 @@ export function EventCard({ event, href, badgeText = "UPCOMING EVENT" }: EventCa
             <div className="flex items-center gap-2">
               <Clock size={14} className="text-[#b75f20]" />
               <span className="font-medium text-xs text-[#2c2627]/70">
-                {dateInfo.fullDate} • {dateInfo.time}
+                {event.date_is_tbc ? "TBC" : `${dateInfo.fullDate} • ${dateInfo.time}`}
               </span>
             </div>
           </div>
