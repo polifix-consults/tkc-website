@@ -249,7 +249,7 @@ export function HeroSection() {
                   <p className="text-[11px] md:text-xs text-white/80 mb-6 leading-relaxed">
                     Our strategy extends beyond the chessboard. Discover the
                     community of professionals, tournaments, and curated events
-                    that make up The Knight Club.
+                    that make up The Knight Collective.
                   </p>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <Link
