@@ -240,11 +240,11 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-4 md:px-8">
           {/* Header */}
           <div className="text-center mb-20 animate-fade-up">
-            <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#b75f20] mb-6">
+            {/* <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#b75f20] mb-6">
               Leadership <span className="mx-2">•</span> Board of Directors
-            </p>
+            </p> */}
             <h2 className="font-bold text-3xl md:text-4xl text-[#2c2627] tracking-wide mb-4">
-              Board Members
+              The TKC Team
             </h2>
             <div className="w-16 h-1 bg-[#b75f20] mx-auto rounded-full" />
           </div>
