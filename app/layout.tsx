@@ -10,7 +10,13 @@ export const metadata: Metadata = {
   },
   description:
     "The Knight Club is an exclusive chess society for thinkers, strategists, and culture makers. Events, archives, and the art of the game.",
-  keywords: ["chess club", "knight club", "chess events", "chess culture", "strategy"],
+  keywords: [
+    "chess club",
+    "knight club",
+    "chess events",
+    "chess culture",
+    "strategy",
+  ],
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -35,8 +41,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="facebook-domain-verification" content="myc9kksqks9wpgyof7q2pi5h80esin" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <meta
+          name="facebook-domain-verification"
+          content="myc9kksqks9wpgyof7q2pi5h80esin"
+        />
       </head>
       <body className="bg-tkc-black text-tkc-white antialiased">
         <Navbar />
