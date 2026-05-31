@@ -96,10 +96,14 @@ export default function AboutPage() {
               <div className="h-1 w-16 bg-[#b75f20] rounded-full mb-6" />
               <div className="space-y-4 text-sm text-[#f2efe9]/80 leading-relaxed max-w-[440px]">
                 <p>
-                  Our culture is rooted in intentionality, curiosity, and thoughtful engagement.
+                  Our culture is rooted in intentionality, curiosity, and
+                  thoughtful engagement.
                 </p>
                 <p>
-                  We value respect, openness, and inclusivity, ensuring that every participant feels seen, heard, and comfortable at the board. Whether you are experienced or just beginning, your presence adds to the richness of the experience.
+                  We value respect, openness, and inclusivity, ensuring that
+                  every participant feels seen, heard, and comfortable at the
+                  board. Whether you are experienced or just beginning, your
+                  presence adds to the richness of the experience.
                 </p>
               </div>
             </div>
@@ -141,9 +145,9 @@ export default function AboutPage() {
                     Wisdom & Perspective
                   </h3>
                   <p className="text-sm text-[#f2efe9]/70 leading-relaxed text-right md:ml-auto md:max-w-[80%]">
-                    We invite senior professionals to share insights and thoughts
-                    in a relaxed manner, enriching every meetup with deep industry
-                    wisdom and leadership perspective.
+                    We invite senior professionals to share insights and
+                    thoughts in a relaxed manner, enriching every meetup with
+                    deep industry wisdom and leadership perspective.
                   </p>
                 </div>
                 <div className="relative mt-6 shrink-0">
@@ -162,7 +166,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
 
       {/* Purpose Highlights */}
       <section className="py-24 bg-[#f2efe9]">
@@ -200,31 +203,57 @@ export default function AboutPage() {
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#b75f20] rounded-full hidden md:block z-10 shadow-[0_0_0_4px_#f2efe9]" />
 
                   {/* Left Block */}
-                  <div className={`w-full md:w-1/2 flex ${isEven ? 'justify-start md:justify-end md:pr-16 lg:pr-24 order-2 md:order-1 mt-8 md:mt-0' : 'justify-start md:justify-end md:pr-16 lg:pr-24 order-1 md:order-1'}`}>
+                  <div
+                    className={`w-full md:w-1/2 flex ${isEven ? "justify-start md:justify-end md:pr-16 lg:pr-24 order-2 md:order-1 mt-8 md:mt-0" : "justify-start md:justify-end md:pr-16 lg:pr-24 order-1 md:order-1"}`}
+                  >
                     {isEven ? (
                       <div className="text-left md:text-right w-full max-w-md">
-                        <p className="text-[#b75f20] text-sm font-bold mb-2 tracking-wide">{p.subtitle}</p>
-                        <h3 className="text-[#2c2627] text-2xl md:text-3xl font-bold mb-4">{p.title}</h3>
-                        <p className="text-[#2c2627]/70 text-sm leading-relaxed font-medium">{p.desc}</p>
+                        <p className="text-[#b75f20] text-sm font-bold mb-2 tracking-wide">
+                          {p.subtitle}
+                        </p>
+                        <h3 className="text-[#2c2627] text-2xl md:text-3xl font-bold mb-4">
+                          {p.title}
+                        </h3>
+                        <p className="text-[#2c2627]/70 text-sm leading-relaxed font-medium">
+                          {p.desc}
+                        </p>
                       </div>
                     ) : (
                       <div className="relative w-full max-w-lg h-[250px] md:h-[300px] rounded-xl overflow-hidden shadow-2xl border border-[#2c2627]/5">
-                        <Image src={p.image} alt={p.title} fill className="object-cover" />
+                        <Image
+                          src={p.image}
+                          alt={p.title}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                     )}
                   </div>
 
                   {/* Right Block */}
-                  <div className={`w-full md:w-1/2 flex ${isEven ? 'justify-start md:pl-16 lg:pl-24 order-1 md:order-2' : 'justify-start md:pl-16 lg:pl-24 order-2 md:order-2 mt-8 md:mt-0'}`}>
+                  <div
+                    className={`w-full md:w-1/2 flex ${isEven ? "justify-start md:pl-16 lg:pl-24 order-1 md:order-2" : "justify-start md:pl-16 lg:pl-24 order-2 md:order-2 mt-8 md:mt-0"}`}
+                  >
                     {isEven ? (
                       <div className="relative w-full max-w-lg h-[250px] md:h-[300px] rounded-xl overflow-hidden shadow-2xl border border-[#2c2627]/5">
-                        <Image src={p.image} alt={p.title} fill className="object-cover" />
+                        <Image
+                          src={p.image}
+                          alt={p.title}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                     ) : (
                       <div className="text-left w-full max-w-md">
-                        <p className="text-[#b75f20] text-sm font-bold mb-2 tracking-wide">{p.subtitle}</p>
-                        <h3 className="text-[#2c2627] text-2xl md:text-3xl font-bold mb-4">{p.title}</h3>
-                        <p className="text-[#2c2627]/70 text-sm leading-relaxed font-medium">{p.desc}</p>
+                        <p className="text-[#b75f20] text-sm font-bold mb-2 tracking-wide">
+                          {p.subtitle}
+                        </p>
+                        <h3 className="text-[#2c2627] text-2xl md:text-3xl font-bold mb-4">
+                          {p.title}
+                        </h3>
+                        <p className="text-[#2c2627]/70 text-sm leading-relaxed font-medium">
+                          {p.desc}
+                        </p>
                       </div>
                     )}
                   </div>
@@ -250,74 +279,12 @@ export default function AboutPage() {
           </div>
 
           {/* Members List */}
+          {/* Member Card 1: Olubunmi Ayantunji */}
           <div className="flex flex-col gap-16 max-w-[1000px] mx-auto">
-            {/* Member Card 1: Joshua Adejumo */}
-            <div className="relative group w-full animate-fade-up" style={{ animationDelay: "0.15s" }}>
-              <div className="absolute inset-0 bg-[#b75f20] rounded-2xl translate-x-2 translate-y-2 shadow-2xl z-0 transition-transform duration-500 group-hover:translate-x-3 group-hover:translate-y-3" />
-              <div className="relative z-10 flex flex-col md:flex-row w-full rounded-2xl overflow-hidden bg-white border border-[#2c2627]/10 transition-all duration-500 min-w-0">
-                <div className="relative w-full md:w-[32%] h-[320px] md:h-auto min-h-[280px] overflow-hidden shrink-0 bg-gray-100">
-                  <Image
-                    src="/images/adejumo.jpeg"
-                    alt="Joshua Adejumo"
-                    fill
-                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex-1 p-8 md:p-10 flex flex-col justify-center">
-                  <h3 className="font-bold text-2xl text-[#2c2627] mb-1 group-hover:text-[#b75f20] transition-colors duration-300">
-                    Joshua Adejumo
-                  </h3>
-                  <p className="font-semibold text-xs uppercase tracking-wider text-[#b75f20] mb-4">
-                    Director of Community and Stakeholder Partnerships
-                  </p>
-                  <div className="text-sm text-[#2c2627]/85 leading-relaxed font-medium space-y-4">
-                    <p>
-                      Joshua Adejumo is an executive health and safety leader with over a decade of experience designing and implementing world-class occupational health and safety (OHS) management systems. As the Managing Partner of ADE Safety Consulting, he specializes in bridging the gap between complex regulatory frameworks and proactive corporate leadership.
-                    </p>
-                    <p>
-                      Currently an MSc candidate with Distinction in Occupational Safety Management at the University of Central Missouri (USA), Josh holds top-tier international designations, including CSP, CHSC, and CMIOSH, among others. He is a member of The National Society of Leadership and Success (USA). His career features a proven track record of steering major hazard prevention programs across high-stakes industries, including Drilling Oil & Gas, Mining, Heavy Construction, infrastructure and large-scale industrial projects.
-                    </p>
-                    <p>
-                      Known for treating risk calculation with the precision of a strategist, Josh is dedicated to helping organizations build resilient safety cultures where proactive hazard identification drives operational performance.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Member Card 2: Rajat */}
-            <div className="relative group w-full animate-fade-up" style={{ animationDelay: "0.3s" }}>
-              <div className="absolute inset-0 bg-[#2c2627] rounded-2xl translate-x-2 translate-y-2 shadow-2xl z-0 transition-transform duration-500 group-hover:translate-x-3 group-hover:translate-y-3" />
-              <div className="relative z-10 flex flex-col md:flex-row w-full rounded-2xl overflow-hidden bg-white border border-[#2c2627]/10 transition-all duration-500 min-w-0">
-                <div className="relative w-full md:w-[32%] h-[320px] md:h-auto min-h-[280px] overflow-hidden shrink-0 bg-gray-100">
-                  <Image
-                    src="/images/rajat.jpeg"
-                    alt="Rajat Tokas"
-                    fill
-                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex-1 p-8 md:p-10 flex flex-col justify-center">
-                  <h3 className="font-bold text-2xl text-[#2c2627] mb-1 group-hover:text-[#b75f20] transition-colors duration-300">
-                    Rajat Tokas
-                  </h3>
-                  <p className="font-semibold text-xs uppercase tracking-wider text-[#b75f20] mb-4">
-                    Director of Operations and Strategy
-                  </p>
-                  <div className="text-sm text-[#2c2627]/85 leading-relaxed font-medium space-y-4">
-                    <p>
-                      Rajat is a strategy and management consulting professional with expertise in strategic planning, project management, business development, and capacity building. Over the past nine years, he has advised and worked closely with public and private sector organizations, including government departments, multilateral organizations, industry associations, educational institutions, and private enterprises. He currently provides strategic planning, performance management, and reporting services to the Government of Saskatchewan.
-                    </p>
-                    <p>
-                      Outside of work, Rajat is passionate about chess and its ability to bring community together. He believes chess is a powerful educational tool that helps individuals of all ages build valuable skills including critical thinking and problem-solving. Through his involvement with TKC, he is committed to promoting a welcoming and inclusive chess community that encourages new ways to connect and learn.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Member Card 3: Olubunmi Ayantunji */}
-            <div className="relative group w-full animate-fade-up" style={{ animationDelay: "0.45s" }}>
+            <div
+              className="relative group w-full animate-fade-up"
+              style={{ animationDelay: "0.45s" }}
+            >
               <div className="absolute inset-0 bg-[#b75f20] rounded-2xl translate-x-2 translate-y-2 shadow-2xl z-0 transition-transform duration-500 group-hover:translate-x-3 group-hover:translate-y-3" />
               <div className="relative z-10 flex flex-col md:flex-row w-full rounded-2xl overflow-hidden bg-white border border-[#2c2627]/10 transition-all duration-500 min-w-0">
                 <div className="relative w-full md:w-[32%] h-[320px] md:h-auto min-h-[280px] overflow-hidden shrink-0 bg-gray-100">
@@ -337,10 +304,121 @@ export default function AboutPage() {
                   </p>
                   <div className="text-sm text-[#2c2627]/85 leading-relaxed font-medium space-y-4">
                     <p>
-                      Olubunmi Ayantunji is a Legal Practitioner, Policy Expert, and Government Relations Advisor. He holds a Master's degree in Legislative Studies and Policy from the University of Benin Nigeria and a Master of Public Administration (MPA) from the Johnson Shoyama Graduate School of Public Policy (University of Regina).
+                      Olubunmi Ayantunji is a Legal Practitioner, Policy Expert,
+                      and Government Relations Advisor. He holds a Master's
+                      degree in Legislative Studies and Policy from the
+                      University of Benin Nigeria and a Master of Public
+                      Administration (MPA) from the Johnson Shoyama Graduate
+                      School of Public Policy (University of Regina).
                     </p>
                     <p>
-                      He has served on the board of the Institute of Public Administration of Canada (IPAC) and has almost a decade of experience in the Public service in Nigeria, Ghana and the Provincial Government of Saskatchewan in Canada.
+                      He has served on the board of the Institute of Public
+                      Administration of Canada (IPAC) and has almost a decade of
+                      experience in the Public service in Nigeria, Ghana and the
+                      Provincial Government of Saskatchewan in Canada.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Member Card 2: Joshua Adejumo */}
+            <div
+              className="relative group w-full animate-fade-up"
+              style={{ animationDelay: "0.15s" }}
+            >
+              <div className="absolute inset-0 bg-[#b75f20] rounded-2xl translate-x-2 translate-y-2 shadow-2xl z-0 transition-transform duration-500 group-hover:translate-x-3 group-hover:translate-y-3" />
+              <div className="relative z-10 flex flex-col md:flex-row w-full rounded-2xl overflow-hidden bg-white border border-[#2c2627]/10 transition-all duration-500 min-w-0">
+                <div className="relative w-full md:w-[32%] h-[320px] md:h-auto min-h-[280px] overflow-hidden shrink-0 bg-gray-100">
+                  <Image
+                    src="/images/adejumo.jpeg"
+                    alt="Joshua Adejumo"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex-1 p-8 md:p-10 flex flex-col justify-center">
+                  <h3 className="font-bold text-2xl text-[#2c2627] mb-1 group-hover:text-[#b75f20] transition-colors duration-300">
+                    Joshua Adejumo
+                  </h3>
+                  <p className="font-semibold text-xs uppercase tracking-wider text-[#b75f20] mb-4">
+                    Director of Community and Stakeholder Partnerships
+                  </p>
+                  <div className="text-sm text-[#2c2627]/85 leading-relaxed font-medium space-y-4">
+                    <p>
+                      Joshua Adejumo is an executive health and safety leader
+                      with over a decade of experience designing and
+                      implementing world-class occupational health and safety
+                      (OHS) management systems. As the Managing Partner of ADE
+                      Safety Consulting, he specializes in bridging the gap
+                      between complex regulatory frameworks and proactive
+                      corporate leadership.
+                    </p>
+                    <p>
+                      Currently an MSc candidate with Distinction in
+                      Occupational Safety Management at the University of
+                      Central Missouri (USA), Josh holds top-tier international
+                      designations, including CSP, CHSC, and CMIOSH, among
+                      others. He is a member of The National Society of
+                      Leadership and Success (USA). His career features a proven
+                      track record of steering major hazard prevention programs
+                      across high-stakes industries, including Drilling Oil &
+                      Gas, Mining, Heavy Construction, infrastructure and
+                      large-scale industrial projects.
+                    </p>
+                    <p>
+                      Known for treating risk calculation with the precision of
+                      a strategist, Josh is dedicated to helping organizations
+                      build resilient safety cultures where proactive hazard
+                      identification drives operational performance.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Member Card 3: Rajat */}
+            <div
+              className="relative group w-full animate-fade-up"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <div className="absolute inset-0 bg-[#2c2627] rounded-2xl translate-x-2 translate-y-2 shadow-2xl z-0 transition-transform duration-500 group-hover:translate-x-3 group-hover:translate-y-3" />
+              <div className="relative z-10 flex flex-col md:flex-row w-full rounded-2xl overflow-hidden bg-white border border-[#2c2627]/10 transition-all duration-500 min-w-0">
+                <div className="relative w-full md:w-[32%] h-[320px] md:h-auto min-h-[280px] overflow-hidden shrink-0 bg-gray-100">
+                  <Image
+                    src="/images/rajat.jpeg"
+                    alt="Rajat Tokas"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex-1 p-8 md:p-10 flex flex-col justify-center">
+                  <h3 className="font-bold text-2xl text-[#2c2627] mb-1 group-hover:text-[#b75f20] transition-colors duration-300">
+                    Rajat Tokas
+                  </h3>
+                  <p className="font-semibold text-xs uppercase tracking-wider text-[#b75f20] mb-4">
+                    Director of Operations and Strategy
+                  </p>
+                  <div className="text-sm text-[#2c2627]/85 leading-relaxed font-medium space-y-4">
+                    <p>
+                      Rajat is a strategy and management consulting professional
+                      with expertise in strategic planning, project management,
+                      business development, and capacity building. Over the past
+                      nine years, he has advised and worked closely with public
+                      and private sector organizations, including government
+                      departments, multilateral organizations, industry
+                      associations, educational institutions, and private
+                      enterprises. He currently provides strategic planning,
+                      performance management, and reporting services to the
+                      Government of Saskatchewan.
+                    </p>
+                    <p>
+                      Outside of work, Rajat is passionate about chess and its
+                      ability to bring community together. He believes chess is
+                      a powerful educational tool that helps individuals of all
+                      ages build valuable skills including critical thinking and
+                      problem-solving. Through his involvement with TKC, he is
+                      committed to promoting a welcoming and inclusive chess
+                      community that encourages new ways to connect and learn.
                     </p>
                   </div>
                 </div>
@@ -349,7 +427,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
