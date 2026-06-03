@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | The Knight Club",
   },
   description:
-    "The Knight Club is an exclusive chess society for thinkers, strategists, and culture makers. Events, archives, and the art of the game.",
+    "The Knight Collective is a chess community for thinkers, strategists, and change makers. Events, archives, and the art of the game.",
   keywords: [
     "chess club",
     "knight club",
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "The Knight Club",
-    title: "The Knight Club — Where Strategy Meets Culture",
+    siteName: "The Knight Collective",
+    title: "The Knight Collective — Where Strategy Meets Culture",
     description:
-      "An exclusive chess society for thinkers, strategists, and culture makers.",
+      "An exclusive chess society for thinkers, strategists, and change makers.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Knight Club",
+    title: "The Knight Collective",
     description: "Where Strategy Meets Culture",
   },
 };
