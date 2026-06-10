@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "The Knight Collective",
     title: "The Knight Collective — Where Strategy Meets Culture",
     description:
-      "An exclusive chess society for thinkers, strategists, and change makers.",
+      "A Chess society for thinkers, strategists, and change makers.",
   },
   twitter: {
     card: "summary_large_image",
