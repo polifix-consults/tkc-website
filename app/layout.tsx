@@ -5,23 +5,25 @@ import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "The Knight Club — Where Strategy Meets Culture",
-    template: "%s | The Knight Club",
+    default: "The Knights Collective — Where Strategy Meets Culture",
+    template: "%s | The Knights Collective",
   },
   description:
-    "The Knight Collective is a chess community for thinkers, strategists, and change makers. Events, archives, and the art of the game.",
+    "The Knights Collective is a chess community for thinkers, strategists, and change makers. Events, archives, and the art of the game.",
   keywords: [
     "chess club",
     "knight club",
     "chess events",
     "chess culture",
     "strategy",
+    "chess community",
+    "chess players"
   ],
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "The Knight Collective",
-    title: "The Knight Collective — Where Strategy Meets Culture",
+    siteName: "The Knights Collective",
+    title: "The Knights Collective — Where Strategy Meets Culture",
     description:
       "A Chess society for thinkers, strategists, and change makers.",
   },
