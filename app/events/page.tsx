@@ -1,7 +1,7 @@
 import { eventsService } from "@/services/events.service";
 import { Metadata } from "next";
 import { EventTabs } from "@/components/events/EventTabs";
-import { Swords, Crown, Shield, Trophy, Castle, Target } from "lucide-react";
+import { ChessKnight, ChessQueen, ChessPawn, ChessBishop, ChessRook, ChessKing, Trophy } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Events & Meetups | The Knight Club",
@@ -19,27 +19,27 @@ export default async function EventsPage() {
         
         {/* FLOATING THEMATIC CHESS & STRATEGY ICONS */}
         <div className="absolute inset-0 pointer-events-none z-0 hidden lg:block">
-          <Swords
+          <ChessKnight
             size={36}
             className="absolute top-12 left-0 text-[#b75f20]/25 -rotate-12 transition-all duration-700 hover:rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />
-          <Crown
+          <ChessQueen
             size={32}
             className="absolute top-48 right-0 text-[#2c2627]/15 rotate-12 transition-all duration-700 hover:-rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />
-          <Shield
+          <ChessPawn
             size={30}
             className="absolute bottom-48 left-2 text-[#2c2627]/15 rotate-45 transition-all duration-700 hover:-rotate-45 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />
-          <Trophy
+          <ChessBishop
             size={34}
             className="absolute bottom-16 right-2 text-[#b75f20]/25 -rotate-12 transition-all duration-700 hover:rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />
-          <Castle
+          <ChessRook
             size={32}
             className="absolute top-1/2 left-4 text-[#2c2627]/15 rotate-12 transition-all duration-700 hover:-rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />
-          <Target
+          <ChessKing
             size={28}
             className="absolute top-2/3 right-6 text-[#b75f20]/25 -rotate-45 transition-all duration-700 hover:rotate-45 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Calendar, MapPin, Clock, ArrowRight, Mail, ChevronLeft, ChevronRight, Swords, Crown, Shield, Trophy, Castle, Target } from "lucide-react";
+import { Calendar, MapPin, Clock, ArrowRight, Mail, ChevronLeft, ChevronRight, Trophy, ChessKnight, ChessQueen, ChessPawn, ChessBishop, ChessRook, ChessKing } from "lucide-react";
 import type { Event, EventMedia } from "@/lib/database.types";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
@@ -213,27 +213,27 @@ export function EventDetails({ event, media = [] }: EventDetailsProps) {
       <div className="relative tkc-container max-w-[1200px] mx-auto px-4 md:px-8 mt-16 overflow-visible">
         {/* FLOATING THEMATIC CHESS & STRATEGY ICONS */}
         <div className="absolute inset-0 pointer-events-none z-0 hidden lg:block">
-          <Swords
+          <ChessKnight
             size={36}
             className="absolute top-12 -left-12 text-[#b75f20]/25 -rotate-12 transition-all duration-700 hover:rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />
-          <Crown
+          <ChessQueen
             size={32}
             className="absolute top-[400px] -right-12 text-[#2c2627]/15 rotate-12 transition-all duration-700 hover:-rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />
-          <Shield
+          <ChessPawn
             size={30}
             className="absolute bottom-48 -left-12 text-[#2c2627]/15 rotate-45 transition-all duration-700 hover:-rotate-45 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />
-          <Trophy
+          <ChessBishop
             size={34}
             className="absolute bottom-16 -right-12 text-[#b75f20]/25 -rotate-12 transition-all duration-700 hover:rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />
-          <Castle
+          <ChessRook
             size={32}
             className="absolute top-[250px] -left-16 text-[#2c2627]/15 rotate-12 transition-all duration-700 hover:-rotate-12 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />
-          <Target
+          <ChessKing
             size={28}
             className="absolute top-[600px] -right-16 text-[#b75f20]/25 -rotate-45 transition-all duration-700 hover:rotate-45 hover:scale-110 hover:text-[#b75f20] pointer-events-auto cursor-default"
           />

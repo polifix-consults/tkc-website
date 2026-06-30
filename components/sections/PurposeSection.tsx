@@ -8,21 +8,21 @@ const pillars = [
     title: "Strategic Thinking",
     description:
       "Use chess as a tool to sharpen analytical skills and decision-making.",
-    image: "/images/strategic.jpeg",
+    image: "/images/teen_images/sideview of a kid playing chess.jpeg",
   },
   {
     icon: <Network size={22} className="text-[#c49671]" />,
     title: "Professional Networking",
     description:
       "Foster connections among thought leaders, innovators, and professionals.",
-    image: "/images/bIhero.jpeg",
+    image: "/images/teen_images/frontview of an adult playing chess with a kid.jpeg",
   },
   {
     icon: <Coffee size={22} className="text-[#c49671]" />,
     title: "Relaxed Excellence",
     description:
       "Provide a semi-casual environment that blends professionalism with the joy of play.",
-    image: "/images/relaxedex.jpeg",
+    image: "/images/teen_images/side view of a black and asian teen playing chess.jpeg",
   }
 ];
 

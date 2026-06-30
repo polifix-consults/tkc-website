@@ -149,7 +149,7 @@ export function StrategyVideoSection() {
                       href="/about"
                       className="inline-flex items-center justify-center gap-2 bg-[#b75f20] text-white font-medium text-sm px-8 py-3.5 rounded hover:bg-[#b75f20]/90 transition-all duration-300 shadow-md w-full sm:w-auto"
                     >
-                      About the Club <ArrowRight size={16} />
+                      About the Community <ArrowRight size={16} />
                     </Link>
                     <button
                       onClick={handleReplay}

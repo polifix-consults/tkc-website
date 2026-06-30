@@ -3,15 +3,16 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
-  Swords,
-  Castle,
-  Shield,
-  Trophy,
-  Crown,
-  Target,
+  ChessKnight,
+  ChessRook,
+  ChessPawn,
+  ChessBishop,
+  ChessQueen,
+  ChessKing,
   Play,
   RotateCcw,
   ArrowRight,
+  Trophy
 } from "lucide-react";
 
 export function HeroSection() {
@@ -57,7 +58,7 @@ export function HeroSection() {
   // Typing animation states
   const [typedText, setTypedText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
-  const fullText = "for you.";
+  const fullText = "through chess.";
 
   useEffect(() => {
     let index = 0;
@@ -123,8 +124,8 @@ export function HeroSection() {
             className="animate-fade-up font-bold text-[2.2rem] sm:text-[3.2rem] md:text-[3.8rem] xl:text-[4.5rem] leading-[1.05] tracking-tight text-[#2c2627] mb-6"
             style={{ animationDelay: "0.2s", opacity: 0 }}
           >
-            A Strategic <br />
-            Chess Community <br />
+            Empowering <br />
+            Young Changemakers <br />
             <span className="italic font-normal text-[#b75f20] pr-1 inline-flex items-center min-w-[3em]">
               {typedText}
               {showCursor && (
@@ -138,10 +139,9 @@ export function HeroSection() {
             className="animate-fade-up text-sm md:text-base text-[#2c2627]/85 leading-relaxed max-w-[460px] mb-8"
             style={{ animationDelay: "0.3s", opacity: 0 }}
           >
-            The Knights Collective is a chess community created to bring people
-            together through strategy, learning, and connection. We welcome
-            players of all levels and backgrounds into a safe space where
-            growth, confidence, and community thrive.{" "}
+            The Knights Collective is a chess community dedicated to developing young leaders at the intersection of
+            innovation and community impact, We create opportunities for youth to engage, learn, and lead, transforming ideas
+            into action and potential into tangible outcomes.
           </p>
 
           <div
@@ -171,32 +171,32 @@ export function HeroSection() {
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* FLOATING THEMATIC CHESS & STRATEGY ICONS */}
-          <Swords
+          <ChessKnight
             size={44}
             className="absolute -top-10 -left-10 text-[#b75f20]/45 z-20 pointer-events-none"
             style={getFloatingStyle(-0.15, -12, 1.15, -4, -8)}
           />
-          <Castle
+          <ChessRook
             size={38}
             className="absolute -bottom-8 -left-8 text-[#2c2627]/30 z-0 pointer-events-none"
             style={getFloatingStyle(0.1, 12, 1.1, -4, 8)}
           />
-          <Shield
+          <ChessPawn
             size={36}
             className="absolute -top-12 -right-6 text-[#2c2627]/25 z-0 pointer-events-none"
             style={getFloatingStyle(-0.1, 45, 1.1, 4, -8)}
           />
-          <Trophy
+          <ChessBishop
             size={42}
             className="absolute -bottom-10 -right-10 text-[#b75f20]/40 z-20 pointer-events-none"
             style={getFloatingStyle(0.12, -12, 1.15, 4, 8)}
           />
-          <Crown
+          <ChessQueen
             size={28}
             className="absolute top-1/2 -left-12 text-[#2c2627]/20 z-20 pointer-events-none"
             style={getFloatingStyle(-0.12, 12, 1.2, -8, 0, true)}
           />
-          <Target
+          <ChessKing
             size={32}
             className="absolute top-1/3 -right-12 text-[#b75f20]/30 z-0 pointer-events-none"
             style={getFloatingStyle(0.08, -12, 1.2, 8, 0, true)}
@@ -210,7 +210,7 @@ export function HeroSection() {
             <video
               ref={videoRef}
               src="/videos/tkc intro.webm"
-              poster="/images/relaxedex.jpeg"
+              poster="/images/teen_images/two kids playing chess with a coke in his front.jpeg"
               className="w-full h-full object-contain cursor-pointer"
               onEnded={handleVideoEnded}
               onClick={isPlaying ? handlePause : handlePlay}
@@ -241,7 +241,7 @@ export function HeroSection() {
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#2c2627]/85 backdrop-blur-md p-6 md:p-12 text-center text-white z-30 transition-all duration-500 animate-fade-in">
                 <div className="max-w-[400px]">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#b75f20]/20 text-[#b75f20] mb-4">
-                    <Crown size={24} />
+                    <ChessQueen size={24} />
                   </div>
                   <h3 className="font-bold text-xl md:text-2xl lg:text-3xl text-white mb-4 tracking-tight leading-tight">
                     Uncover the Collective
@@ -256,7 +256,7 @@ export function HeroSection() {
                       href="/about"
                       className="inline-flex items-center justify-center gap-2 bg-[#b75f20] text-white font-medium text-xs px-6 py-3 rounded hover:bg-[#b75f20]/90 transition-all duration-300 shadow-md w-full sm:w-auto"
                     >
-                      About the Club <ArrowRight size={14} />
+                      About the Community <ArrowRight size={14} />
                     </Link>
                     <button
                       onClick={handleReplay}

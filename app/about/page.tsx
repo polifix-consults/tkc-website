@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  Swords, 
-  Castle, 
-  Shield, 
-  Trophy, 
-  Crown, 
-  Target 
+  ChessKnight, 
+  ChessRook, 
+  ChessPawn, 
+  ChessBishop, 
+  ChessQueen, 
+  ChessKing,
+  Trophy
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -29,9 +30,8 @@ export default function AboutPage() {
               The Knights Collective
             </h1>
             <p className="text-[#2c2627]/80 leading-relaxed max-w-[440px] font-medium">
-              The Knights Collective (TKC) is a strategic chess circle designed
-              to bring together professionals who value intellect, innovation,
-              and strategic thinking.
+              The Knights Collective (TKC) is a collective chess startup dedicated to developing
+              young leaders at the intersection of innovation and community impact.
             </p>
           </div>
 
@@ -40,34 +40,34 @@ export default function AboutPage() {
             style={{ animationDelay: "0.3s", opacity: 0 }}
           >
             {/* FLOATING THEMATIC CHESS & STRATEGY ICONS */}
-            <Swords
+            <ChessKnight
               size={40}
               className="absolute -top-8 -left-8 text-[#b75f20]/45 -rotate-12 z-20 transition-all duration-700 group-hover:scale-110 pointer-events-none"
             />
-            <Castle
+            <ChessRook
               size={36}
               className="absolute -bottom-8 -left-6 text-[#2c2627]/30 rotate-12 z-0 transition-all duration-700 group-hover:scale-110 pointer-events-none"
             />
-            <Shield
+            <ChessPawn
               size={32}
               className="absolute -top-10 -right-6 text-[#2c2627]/25 rotate-45 z-0 transition-all duration-700 group-hover:scale-110 pointer-events-none"
             />
-            <Trophy
+            <ChessBishop
               size={38}
               className="absolute -bottom-8 -right-8 text-[#b75f20]/40 -rotate-12 z-20 transition-all duration-700 group-hover:scale-110 pointer-events-none"
             />
-            <Crown
+            <ChessQueen
               size={26}
               className="absolute top-1/2 -left-10 text-[#2c2627]/20 -translate-y-1/2 rotate-12 z-20 transition-all duration-700 group-hover:scale-110 pointer-events-none"
             />
-            <Target
+            <ChessKing
               size={30}
               className="absolute top-1/3 -right-10 text-[#b75f20]/30 -translate-y-1/2 -rotate-12 z-0 transition-all duration-700 group-hover:scale-110 pointer-events-none"
             />
             <div className="absolute inset-0 bg-[#b75f20] rounded-2xl translate-x-3 translate-y-3 shadow-2xl z-0" />
             <div className="relative z-10 h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl bg-white border border-[#2c2627]/10">
               <Image
-                src="/images/relaxedex.jpeg"
+                src="/images/teen_images/a kid watching multiple kids playing chess on two chessboards.jpeg"
                 alt="Knight Chess Piece"
                 fill
                 className="object-cover"
@@ -96,14 +96,13 @@ export default function AboutPage() {
               <div className="h-1 w-16 bg-[#b75f20] rounded-full mb-6" />
               <div className="space-y-4 text-sm text-[#f2efe9]/80 leading-relaxed max-w-[440px]">
                 <p>
-                  Our culture is rooted in intentionality, curiosity, and
-                  thoughtful engagement.
+                  Our culture is built on curiosity, peer support, and leadership.
                 </p>
                 <p>
-                  We value respect, openness, and inclusivity, ensuring that
-                  every participant feels seen, heard, and comfortable at the
-                  board. Whether you are experienced or just beginning, your
-                  presence adds to the richness of the experience.
+                  We value respect, inclusivity, and growth, ensuring that
+                  every young person feels seen, heard, and confident at the
+                  board. Whether learning the first moves or designing advanced
+                  strategies, we grow together as next-generation leaders.
                 </p>
               </div>
             </div>
@@ -118,16 +117,16 @@ export default function AboutPage() {
                     Community-Driven
                   </h3>
                   <p className="text-sm text-[#f2efe9]/70 leading-relaxed">
-                    Open to professionals across industries who share a passion
-                    for chess and strategic thinking, fostering friendships that
-                    extend far beyond the chessboard.
+                    Open to young thinkers, students, and peers who share a passion
+                    for chess and strategic thinking, fostering friendships and cooperative
+                    learning that extend far beyond the chessboard.
                   </p>
                 </div>
                 <div className="relative mt-6 shrink-0">
                   <div className="absolute inset-0 bg-[#b75f20] rounded-lg translate-x-2 translate-y-2 z-0" />
                   <div className="relative w-48 h-36 rounded-lg overflow-hidden border border-[#2c2627]/10 z-10 bg-white">
                     <Image
-                      src="/images/communitydriven.jpeg"
+                      src="/images/teen_images/two kids playing chess with a coke in his front.jpeg"
                       alt="Culture"
                       fill
                       className="object-cover"
@@ -142,19 +141,19 @@ export default function AboutPage() {
                     02.
                   </span>
                   <h3 className="font-semibold text-xl text-[#f2efe9] mb-3">
-                    Wisdom & Perspective
+                    Wisdom & Mentorship
                   </h3>
                   <p className="text-sm text-[#f2efe9]/70 leading-relaxed text-right md:ml-auto md:max-w-[80%]">
-                    We invite senior professionals to share insights and
-                    thoughts in a relaxed manner, enriching every meetup with
-                    deep industry wisdom and leadership perspective.
+                    Connecting youth with senior professionals and experienced mentors
+                    who share leadership insights, industry wisdom, and guidance in a
+                    relaxed, friendly setting.
                   </p>
                 </div>
                 <div className="relative mt-6 shrink-0">
                   <div className="absolute inset-0 bg-[#b75f20] rounded-lg -translate-x-2 translate-y-2 z-0" />
                   <div className="relative w-48 h-36 rounded-lg overflow-hidden border border-[#2c2627]/10 z-10 bg-white">
                     <Image
-                      src="/images/wandp.jpeg"
+                      src="/images/teen_images/frontview of an adult playing chess with a kid.jpeg"
                       alt="Culture"
                       fill
                       className="object-cover"
@@ -182,13 +181,13 @@ export default function AboutPage() {
                 subtitle: "01. Principle",
                 title: "Strategic Thinking & Connections",
                 desc: "To create a space where individuals can develop strategic thinking, engage in meaningful conversations, and build genuine connections through the game of chess.",
-                image: "/images/strategic.jpeg",
+                image: "/images/teen_images/sideview of a kid playing chess.jpeg",
               },
               {
                 subtitle: "02. Principle",
                 title: "Diverse & Inclusive Community",
                 desc: "We are committed to fostering a community that is diverse, inclusive, and accessible, welcoming people from different backgrounds, experiences, and levels of play. We believe stronger thinking emerges when different perspectives meet.",
-                image: "/images/diverse.jpeg",
+                image: "/images/teen_images/side view of a black and asian teen playing chess.jpeg",
               },
             ].map((p, i) => {
               const isEven = i % 2 === 0;
