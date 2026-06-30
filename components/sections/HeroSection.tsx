@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ChessKnight,
@@ -16,6 +17,7 @@ import {
 } from "lucide-react";
 
 export function HeroSection() {
+  const USE_VIDEO = false; // Set to true to show video, or false to show static youth chess image
   const [isPlaying, setIsPlaying] = useState(true);
   const [showCta, setShowCta] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -205,67 +207,82 @@ export function HeroSection() {
           {/* Underlay Shadow Card */}
           <div className="absolute inset-0 bg-[#2c2627] rounded-[2rem] md:rounded-[3rem] translate-x-3 translate-y-3 shadow-2xl z-0" />
 
-          {/* Main Video Frame */}
+          {/* Main Video/Image Frame */}
           <div className="relative w-full h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-[#2c2627] z-10 shadow-lg">
-            <video
-              ref={videoRef}
-              src="/videos/tkc intro.webm"
-              poster="/images/teen_images/two kids playing chess with a coke in his front.jpeg"
-              className="w-full h-full object-contain cursor-pointer"
-              onEnded={handleVideoEnded}
-              onClick={isPlaying ? handlePause : handlePlay}
-              controls={isPlaying && !showCta}
-              autoPlay
-              muted
-              playsInline
-            />
+            {USE_VIDEO ? (
+              <>
+                <video
+                  ref={videoRef}
+                  src="/videos/tkc intro.webm"
+                  poster="/images/teen_images/two kids playing chess with a coke in his front.jpeg"
+                  className="w-full h-full object-contain cursor-pointer"
+                  onEnded={handleVideoEnded}
+                  onClick={isPlaying ? handlePause : handlePlay}
+                  controls={isPlaying && !showCta}
+                  autoPlay
+                  muted
+                  playsInline
+                />
 
-            {/* Custom Play Overlay (Shown initially and when paused) */}
-            {!isPlaying && !showCta && (
-              <div
-                className="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer transition-opacity duration-500 z-20"
-                onClick={handlePlay}
-              >
-                <div className="relative flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:scale-110 transition-transform duration-300 shadow-xl group/play animate-fade-in">
-                  <div className="flex items-center justify-center w-14 h-14 md:w-18 md:h-18 rounded-full bg-[#b75f20] text-white shadow-inner transition-colors duration-300 group-hover/play:bg-[#2c2627]">
-                    <Play size={28} className="fill-current ml-1" />
+                {/* Custom Play Overlay (Shown initially and when paused) */}
+                {!isPlaying && !showCta && (
+                  <div
+                    className="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer transition-opacity duration-500 z-20"
+                    onClick={handlePlay}
+                  >
+                    <div className="relative flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:scale-110 transition-transform duration-300 shadow-xl group/play animate-fade-in">
+                      <div className="flex items-center justify-center w-14 h-14 md:w-18 md:h-18 rounded-full bg-[#b75f20] text-white shadow-inner transition-colors duration-300 group-hover/play:bg-[#2c2627]">
+                        <Play size={28} className="fill-current ml-1" />
+                      </div>
+                      {/* Rippling pulse animation */}
+                      <div className="absolute inset-0 rounded-full border-2 border-[#b75f20]/50 animate-ping opacity-75 pointer-events-none" />
+                    </div>
                   </div>
-                  {/* Rippling pulse animation */}
-                  <div className="absolute inset-0 rounded-full border-2 border-[#b75f20]/50 animate-ping opacity-75 pointer-events-none" />
-                </div>
-              </div>
-            )}
+                )}
 
-            {/* Dynamic Glassmorphic CTA Overlay (Shown when video ends) */}
-            {showCta && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#2c2627]/85 backdrop-blur-md p-6 md:p-12 text-center text-white z-30 transition-all duration-500 animate-fade-in">
-                <div className="max-w-[400px]">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#b75f20]/20 text-[#b75f20] mb-4">
-                    <ChessQueen size={24} />
+                {/* Dynamic Glassmorphic CTA Overlay (Shown when video ends) */}
+                {showCta && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#2c2627]/85 backdrop-blur-md p-6 md:p-12 text-center text-white z-30 transition-all duration-500 animate-fade-in">
+                    <div className="max-w-[400px]">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#b75f20]/20 text-[#b75f20] mb-4">
+                        <ChessQueen size={24} />
+                      </div>
+                      <h3 className="font-bold text-xl md:text-2xl lg:text-3xl text-white mb-4 tracking-tight leading-tight">
+                        Uncover the Collective
+                      </h3>
+                      <p className="text-[11px] md:text-xs text-white/80 mb-6 leading-relaxed">
+                        Our strategy extends beyond the chessboard. Discover the
+                        community of professionals, tournaments, and curated events
+                        that make up The Knight Collective.
+                      </p>
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <Link
+                          href="/about"
+                          className="inline-flex items-center justify-center gap-2 bg-[#b75f20] text-white font-medium text-xs px-6 py-3 rounded hover:bg-[#b75f20]/90 transition-all duration-300 shadow-md w-full sm:w-auto"
+                        >
+                          About the Community <ArrowRight size={14} />
+                        </Link>
+                        <button
+                          onClick={handleReplay}
+                          className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-medium text-xs px-5 py-3 rounded hover:bg-white/10 transition-all duration-300 w-full sm:w-auto"
+                        >
+                          <RotateCcw size={14} /> Replay
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="font-bold text-xl md:text-2xl lg:text-3xl text-white mb-4 tracking-tight leading-tight">
-                    Uncover the Collective
-                  </h3>
-                  <p className="text-[11px] md:text-xs text-white/80 mb-6 leading-relaxed">
-                    Our strategy extends beyond the chessboard. Discover the
-                    community of professionals, tournaments, and curated events
-                    that make up The Knight Collective.
-                  </p>
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <Link
-                      href="/about"
-                      className="inline-flex items-center justify-center gap-2 bg-[#b75f20] text-white font-medium text-xs px-6 py-3 rounded hover:bg-[#b75f20]/90 transition-all duration-300 shadow-md w-full sm:w-auto"
-                    >
-                      About the Community <ArrowRight size={14} />
-                    </Link>
-                    <button
-                      onClick={handleReplay}
-                      className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-medium text-xs px-5 py-3 rounded hover:bg-white/10 transition-all duration-300 w-full sm:w-auto"
-                    >
-                      <RotateCcw size={14} /> Replay
-                    </button>
-                  </div>
-                </div>
+                )}
+              </>
+            ) : (
+              <div className="relative w-full h-full bg-[#2c2627]">
+                <Image
+                  src="/images/teen_images/side view of a black and asian teen playing chess.jpeg"
+                  alt="Young Minds Playing Chess"
+                  fill
+                  className="object-contain"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </div>
             )}
           </div>
