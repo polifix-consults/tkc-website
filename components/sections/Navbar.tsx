@@ -26,11 +26,16 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const isEventDetailsPage = pathname.startsWith("/events/") && pathname !== "/events";
+  const isEventDetailsPage =
+    pathname.startsWith("/events/") && pathname !== "/events";
 
   const textColorClass = isEventDetailsPage ? "text-white" : "text-[#2c2627]";
-  const textMutedColorClass = isEventDetailsPage ? "text-white/60" : "text-[#2c2627]/60";
-  const linkColorClass = isEventDetailsPage ? "text-white/80 hover:text-[#b75f20]" : "text-[#2c2627]/70 hover:text-[#b75f20]";
+  const textMutedColorClass = isEventDetailsPage
+    ? "text-white/60"
+    : "text-[#2c2627]/60";
+  const linkColorClass = isEventDetailsPage
+    ? "text-white/80 hover:text-[#b75f20]"
+    : "text-[#2c2627]/70 hover:text-[#b75f20]";
   const logoInvertClass = isEventDetailsPage ? "invert" : "";
 
   return (
@@ -57,7 +62,12 @@ export function Navbar() {
               priority
             />
           </Link>
-          <span className={cn("text-[8px] md:text-[9px] font-bold uppercase tracking-[0.18em] mt-1 pl-1", textMutedColorClass)}>
+          <span
+            className={cn(
+              "text-[8px] md:text-[9px] font-bold uppercase tracking-[0.18em] mt-1 pl-1",
+              textMutedColorClass,
+            )}
+          >
             Building Our Community, One Piece at a time
           </span>
         </div>
@@ -96,7 +106,11 @@ export function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={cn("md:hidden p-2 transition-colors", textColorClass, "hover:text-[#b75f20]")}
+          className={cn(
+            "md:hidden p-2 transition-colors",
+            textColorClass,
+            "hover:text-[#b75f20]",
+          )}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -121,7 +135,9 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "text-base font-medium transition-colors",
-                  isEventDetailsPage ? "text-white/80 hover:text-[#b75f20]" : "text-[#2c2627]/80 hover:text-[#b75f20]"
+                  isEventDetailsPage
+                    ? "text-white/80 hover:text-[#b75f20]"
+                    : "text-[#2c2627]/80 hover:text-[#b75f20]",
                 )}
                 onClick={() => setMenuOpen(false)}
               >
@@ -129,7 +145,12 @@ export function Navbar() {
               </Link>
             </li>
           ))}
-          <li className={cn("pt-4 border-t", isEventDetailsPage ? "border-white/10" : "border-black/10")}>
+          <li
+            className={cn(
+              "pt-4 border-t",
+              isEventDetailsPage ? "border-white/10" : "border-black/10",
+            )}
+          >
             <Link
               href="https://docs.google.com/forms/d/e/1FAIpQLSeyJwStOb7J2G5y5HehqAL61EySRv_Dmp1dUR5d9UisOrdaJg/viewform"
               className="inline-flex items-center justify-center bg-[#b75f20] text-white font-semibold text-sm px-6 py-2.5 rounded w-full hover:bg-[#2c2627] transition-colors"
