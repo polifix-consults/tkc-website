@@ -84,74 +84,6 @@ export default function AreaOfImpactPage() {
           </div>
         </section>
       </div>
-
-      {/* Core Focus Areas */}
-      <section className="bg-[#f2efe9] py-24 border-y border-[#2c2627]/10">
-        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-          <div className="text-center mb-16 animate-fade-up">
-            <p className="text-[10px] uppercase font-bold tracking-[0.25em] text-[#b75f20] mb-4">
-              Our Vision in Action
-            </p>
-            <h2 className="font-bold text-3xl md:text-4xl text-[#2c2627] tracking-tight mb-4">
-              Our Core Focus Areas
-            </h2>
-            <div className="h-1 w-16 bg-[#b75f20] rounded-full mx-auto" />
-            <p className="text-sm text-[#2c2627]/70 mt-6 max-w-lg mx-auto">
-              How we use the strategic framework of chess to build leaders,
-              expand minds, and foster meaningful community solutions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
-            {[
-              {
-                icon: <Users size={24} />,
-                title: "Youth Empowerment",
-                desc: "Mentorship and leadership development designed to build capability, agency, and ownership in young minds.",
-              },
-              {
-                icon: <Lightbulb size={24} />,
-                title: "Practical Strategy & Innovation",
-                desc: "Cultivating critical thinking, strategic planning, and adaptive decision-making skills applicable in everyday life.",
-              },
-              {
-                icon: <Compass size={24} />,
-                title: "Community Collaboration",
-                desc: "Connecting strategic thinking with local initiatives to foster collaborative problem-solving and shared growth.",
-              },
-              {
-                icon: <Heart size={24} />,
-                title: "Inclusive & Safe Space",
-                desc: "An environment designed to nurture confidence and ensure every participant feels valued, included, and heard.",
-              },
-            ].map((focus, i) => (
-              <div
-                key={i}
-                className="group relative rounded-2xl border border-[#2c2627]/10 p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 bg-white"
-                style={{ animationDelay: `${i * 0.1}s` }}
-              >
-                {/* Floating subtle hover decoration */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[#b75f20]/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="flex gap-6 items-start relative z-10">
-                  <div className="flex-shrink-0 rounded-xl bg-[#f2efe9] p-4 text-[#b75f20] transition-colors duration-300 group-hover:bg-[#b75f20] group-hover:text-white">
-                    {focus.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl text-[#2c2627] mb-2 group-hover:text-[#b75f20] transition-colors duration-300">
-                      {focus.title}
-                    </h3>
-                    <p className="text-sm text-[#2c2627]/75 leading-relaxed font-medium">
-                      {focus.desc}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Programs Showcase */}
       <section className="py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-4 md:px-8">
@@ -368,6 +300,73 @@ export default function AreaOfImpactPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Focus Areas */}
+      <section className="bg-[#f2efe9] py-24 border-y border-[#2c2627]/10">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center mb-16 animate-fade-up">
+            <p className="text-[10px] uppercase font-bold tracking-[0.25em] text-[#b75f20] mb-4">
+              Our Vision in Action
+            </p>
+            <h2 className="font-bold text-3xl md:text-4xl text-[#2c2627] tracking-tight mb-4">
+              Our Core Focus Areas
+            </h2>
+            <div className="h-1 w-16 bg-[#b75f20] rounded-full mx-auto" />
+            <p className="text-sm text-[#2c2627]/70 mt-6 max-w-lg mx-auto">
+              How we use the strategic framework of chess to build leaders,
+              expand minds, and foster meaningful community solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
+            {[
+              {
+                icon: <Users size={24} />,
+                title: "Youth Empowerment",
+                desc: "Mentorship and leadership development designed to build capability, agency, and ownership in young minds.",
+              },
+              {
+                icon: <Lightbulb size={24} />,
+                title: "Practical Strategy & Innovation",
+                desc: "Cultivating critical thinking, strategic planning, and adaptive decision-making skills applicable in everyday life.",
+              },
+              {
+                icon: <Compass size={24} />,
+                title: "Community Collaboration",
+                desc: "Connecting strategic thinking with local initiatives to foster collaborative problem-solving and shared growth.",
+              },
+              {
+                icon: <Heart size={24} />,
+                title: "Inclusive & Safe Space",
+                desc: "An environment designed to nurture confidence and ensure every participant feels valued, included, and heard.",
+              },
+            ].map((focus, i) => (
+              <div
+                key={i}
+                className="group relative rounded-2xl border border-[#2c2627]/10 p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 bg-white"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
+                {/* Floating subtle hover decoration */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-[#b75f20]/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="flex gap-6 items-start relative z-10">
+                  <div className="flex-shrink-0 rounded-xl bg-[#f2efe9] p-4 text-[#b75f20] transition-colors duration-300 group-hover:bg-[#b75f20] group-hover:text-white">
+                    {focus.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl text-[#2c2627] mb-2 group-hover:text-[#b75f20] transition-colors duration-300">
+                      {focus.title}
+                    </h3>
+                    <p className="text-sm text-[#2c2627]/75 leading-relaxed font-medium">
+                      {focus.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

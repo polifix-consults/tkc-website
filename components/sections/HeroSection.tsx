@@ -141,9 +141,11 @@ export function HeroSection() {
             className="animate-fade-up text-sm md:text-base text-[#2c2627]/85 leading-relaxed max-w-[460px] mb-8"
             style={{ animationDelay: "0.3s", opacity: 0 }}
           >
-            The Knights Collective is a chess community dedicated to developing young leaders at the intersection of
-            innovation and community impact, We create opportunities for youth to engage, learn, and lead, transforming ideas
-            into action and potential into tangible outcomes.
+            The Knights Collective is a chess community dedicated to developing
+            young leaders at the intersection of innovation and community
+            impact, We create opportunities for youth to engage, learn, and
+            lead, transforming ideas into action and potential into tangible
+            outcomes.
           </p>
 
           <div
@@ -252,8 +254,8 @@ export function HeroSection() {
                       </h3>
                       <p className="text-[11px] md:text-xs text-white/80 mb-6 leading-relaxed">
                         Our strategy extends beyond the chessboard. Discover the
-                        community of professionals, tournaments, and curated events
-                        that make up The Knight Collective.
+                        community of professionals, tournaments, and curated
+                        events that make up The Knight Collective.
                       </p>
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                         <Link
@@ -276,7 +278,7 @@ export function HeroSection() {
             ) : (
               <div className="relative w-full h-full bg-[#2c2627]">
                 <Image
-                  src="/images/teen_images/side view of a black and asian teen playing chess.jpeg"
+                  src="/images/teen_images/a kid and a chess board.jpeg"
                   alt="Young Minds Playing Chess"
                   fill
                   className="object-contain"
