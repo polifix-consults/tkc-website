@@ -3,7 +3,8 @@ import { eventsService } from "@/services/events.service";
 import { EventDetails } from "@/components/events/EventDetails";
 import { Metadata } from "next";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 interface EventPageProps {
   params: Promise<{

@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   description: "Discover upcoming chess events, tournaments, and masterclasses at The Knight Club.",
 };
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function EventsPage() {
   const allEvents = await eventsService.getAllEvents();
