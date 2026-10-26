@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Area of Impact | The Knights Collective",
+  title: " Collective",
 };
 
 export default function AreaOfImpactPage() {
